@@ -19,7 +19,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 <section id=board></section>
 
 <script>
-function doAction(){
+function Main(){
 
   T.closelets([
   {title:"New",
@@ -113,7 +113,7 @@ function Disp(){
   Sortable.create(card,{delay:100,chosenClass:'chosen'});
 }
 
-window.webkit.messageHandlers.initT.postMessage( 'doAction' );
+window.webkit.messageHandlers.initT.postMessage( 'Main' );
 </script>
 
 </body>
