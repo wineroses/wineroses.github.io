@@ -1,0 +1,7 @@
+<script>
+function doAction() {
+  alert( T.current );
+  T( 'done' );
+};
+window.webkit.messageHandlers.initT.postMessage( 'doAction' );
+</script>
