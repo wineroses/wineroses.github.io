@@ -42,8 +42,16 @@ function Main(){
     s = block.filter(Check).join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     T("replace",{text:s});
-  }}
+  }},
 
+  {title:"Dropbox",
+  fn:function(){
+    Store();
+    s = block.join("\n\n");
+    title = s.split("\n")[0];
+   T("dropbox",{text:s, filename:title+".txt", direct:true});
+  }}
+  
   ],function (){
     s = T.text;
     list = localStorage.shot || "";
