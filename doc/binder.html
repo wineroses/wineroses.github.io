@@ -120,7 +120,7 @@ function Disp(){
   list = "<div id=card>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>x</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</div></div>";
+    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>︎︎︎︎︎◼︎</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</div></div>";
   }
   board.innerHTML = list + "</div>";
   Sortable.create(card,{delay:100,chosenClass:'chosen'});
