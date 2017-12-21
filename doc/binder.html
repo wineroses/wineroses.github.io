@@ -40,6 +40,7 @@ function Main(){
       return s.test(x);
     }
     s = block.filter(Check).join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
     T("replace",{text:s});
   }}
 
