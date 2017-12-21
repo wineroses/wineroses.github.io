@@ -22,7 +22,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 function Main(){
 
   e = document.createElement("style");
-  e.innerHTML = T.data("style");
+  e.innerHTML = T.data["style"];
   document.head.appendChild(e);
   
   T.closelets([
