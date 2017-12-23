@@ -1,0 +1,9 @@
+function Main(){
+  s = localStorage.text || "";
+  localStorage.text = T.text;
+  p = localStorage.loc-0 || 0;
+  localStorage.loc = T.range.loc;
+ T("replaceRange",{text:s,replacingRange:{len:T.text.length},selectingRange:{loc:p}});
+}
+
+window.webkit.messageHandlers.initT.postMessage("Main");
