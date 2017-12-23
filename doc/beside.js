@@ -1,3 +1,4 @@
+<script>
 function Main(){
   s = localStorage.text || "";
   localStorage.text = T.text;
@@ -7,3 +8,4 @@ function Main(){
 }
 
 window.webkit.messageHandlers.initT.postMessage("Main");
+</script>
