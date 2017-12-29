@@ -1,0 +1,143 @@
+<html><head>
+<meta name=viewport content=initial-scale=1,user-scalable=no>
+<title>Binder</title>
+
+<style>
+body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;} 
+#query{position:fixed;background:ivory;font-size:medium;left:8px;right:8px;z-index:99;} 
+#peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:5px;width:30px;height:30px;z-index:99;}
+#card{position:absolute;white-space:pre;word-wrap:break-word;top:50px; left:10px;right:10px;}
+.item{color:black;background:lightyellow;overflow:hidden;margin-bottom:5px;border-radius:3px;}
+.tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:5em;}.content{padding:2px;padding-left:32px;height:5em;}
+.content:first-line{color:navy; font-family:Hiragino Sans;font-weight:bold;}.chosen{background:white;opacity:0.2;} 
+.hidden{display:none;}
+</style>
+
+</head>
+<body>
+<input id=query onkeyup=Disp() placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
+<section id=board></section>
+
+<script>
+function Main(){
+
+  e = document.createElement("style");
+  e.innerHTML = T.data["style"];
+  document.head.appendChild(e);
+  
+  T.closelets([
+  {title:"New",
+  fn:function(){
+    Store();
+    T("done",{option:"clearAll"});
+  }},
+
+  {title:"Compile",
+  fn:function(){
+    Store();
+    Check = function(x){
+      s = new RegExp("("+ query.value +")","i");
+      return s.test(x);
+    }
+    s = block.filter(Check).join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
+    T("replace",{text:s});
+  }},
+
+  {title:"Dropbox",
+  fn:function(){
+    Store();
+    s = block.join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
+    title = s.split("\n")[0];
+   T("dropbox",{text:s, filename:title+".txt", direct:true});
+  }},
+
+  {title:"Clear All",
+  fn:function(){
+     localStorage.shot = '';
+     T("done");
+  }}
+  
+  ],function (){
+    s = T.text;
+    list = localStorage.shot || "";
+    block = list.split('\t');
+    if(s){
+      if(list){
+        title = T.line(1);
+        for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {block.splice(i,1,s);break}
+        if(i>=block.length) block.push(s);
+      }else{
+        if(confirm("\nSplit this with a blank line ?")){
+          block = s.split(/\n\n+/);
+        }else{
+          block.push(s);
+        }
+      }
+    }
+
+    url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
+    T.request({
+      url:url,
+      callback: function(x){
+        e = document.createElement("script");
+        e.innerHTML = x.responseText;
+        document.head.appendChild(e);
+        Disp();
+      }
+    });
+
+    };
+  });
+}
+
+function Store(){
+  block = [];
+  p = card.getElementsByClassName('content');
+  for(i=0;i<p.length;i++) block.push(p[i].innerText);
+  localStorage.shot = block.join('\t');
+}
+
+function Load(x){
+  s = block[x];
+  Store();
+  T("replace",{text:s});
+}
+
+function Remove(x){
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nDelete this ?";
+  if(confirm(s)){block.splice(x,1);Disp();}
+  Store();
+}
+
+function Reset(){
+  query.value = "";
+  Store();
+  Disp();
+}
+
+function Disp(){
+        w = new RegExp("("+ query.value +")","i");
+  list = "<div id=card>";
+  for(i=0;i<block.length;i++){
+    s=block[i];
+    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+  }
+  board.innerHTML = list + "</div>";
+  Sortable.create(card,{delay:100,chosenClass:'chosen'});
+}
+
+window.webkit.messageHandlers.initT.postMessage( 'Main' );
+</script>
+
+</body>
+<!--
+ Binder for Textwell
+
+ Special Thanks:
+ Sortable.js
+   Copyright 2013 Lebedev Konstantin
+   https://github.com/RubaXa/Sortable
+-->
+</html>
