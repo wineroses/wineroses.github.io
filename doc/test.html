@@ -1,6 +1,6 @@
 <html><head>
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<script src='//raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js'></script>
+<script src='https//raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js'></script>
 <title>Binder</title>
 
 <style>
@@ -56,10 +56,8 @@ function main(){
 
   {title:"Clear ",
   fn:function(){
-    if(e.touches.length==2 && confirm('\nClear All ?')){
-      localStorage.shot = '';
-      T("done");
-    }
+    localStorage.shot = '';
+    T("done");
   }}
   ],function (){
     s = T.text;
