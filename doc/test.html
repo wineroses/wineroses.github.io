@@ -52,8 +52,15 @@ function main(){
     s = s.replace(/\n{3,}/g,"\n\n");
     title = s.split("\n")[0];
    T("dropbox",{text:s, filename:title+".txt", direct:true});
+  }},
+
+  {title:"Clear ",
+  fn:function(){
+    if(e.touches.length==2 && confirm('\nClear All ?')){
+      localStorage.shot = '';
+      T("done");
+    }
   }}
-  
   ],function (){
     s = T.text;
     list = localStorage.shot || "";
