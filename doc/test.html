@@ -53,7 +53,7 @@ function Main(){
    T("dropbox",{text:s, filename:title+".txt", direct:true});
   }},
 
-  {title:"Clear All",
+  {title:"Clear All ",
   fn:function(){
      localStorage.shot = '';
      T("done");
@@ -87,7 +87,12 @@ function Main(){
         Disp();
       }
     });
-
+    document.ontouchmove =function(e){
+      if(e.touches.length==2 && confirm('\nClear All ?')){
+        localStorage.shot = '';
+        T("done");
+      }
+    };
   });
 }
 
