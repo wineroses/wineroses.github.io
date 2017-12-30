@@ -39,7 +39,7 @@ function main(){
       for(i=0;i<block.length;i++) if(s===block[i]){block.splice(i,1);break;}
       block.shift(s);
       localStorage.clip = block.join('\t');
-      T("done",{option:"copyCurrent"});
+      T("done",{option:"cutCurrent"});
     }
 
     url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
