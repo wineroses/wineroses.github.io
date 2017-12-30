@@ -1,6 +1,6 @@
 <html><head>
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<title> Clipos</title>
+<title> Clip</title>
 
 <style>
 body{background:whitesmoke;font-family:Hiragino Sans;font-size:small;} 
@@ -41,7 +41,7 @@ function main(){
           block.splice(i,1);break;
         }
       }
-      block.shift(s);
+      block.unshift(s);
       localStorage.clip = block.join('\t');
       T("done",{option:"cutCurrent"});
     }
