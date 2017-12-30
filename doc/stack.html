@@ -1,6 +1,6 @@
 <html><head>
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<title> Clip</title>
+<title> Stack</title>
 
 <style>
 body{background:whitesmoke;font-family:Hiragino Sans;font-size:small;} 
@@ -28,12 +28,12 @@ function main(){
   T.closelets([
   {title:"Clear All ",
   fn:function(){
-     localStorage.clip = '';
+     localStorage.stack = '';
      T("done");
   }}
   ],function (){
     s = T.current;
-    list = localStorage.clip || "";
+    list = localStorage.stack || "";
     block = list.split('\t');
     if(s){
       for(i=0;i<block.length;i++){
@@ -42,7 +42,7 @@ function main(){
         }
       }
       block.unshift(s);
-      localStorage.clip = block.join('\t');
+      localStorage.stack = block.join('\t');
       T("done",{option:"cutCurrent"});
     }
 
@@ -63,7 +63,7 @@ function Store(){
   block = [];
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  localStorage.clip = block.join('\t');
+  localStorage.stack = block.join('\t');
 }
 
 function Load(x){
