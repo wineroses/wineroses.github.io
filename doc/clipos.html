@@ -1,15 +1,15 @@
 <html><head>
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<title> Clip</title>
+<title> Clipos</title>
 
 <style>
-body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;} 
-#query{position:fixed;background:ivory;font-size:medium;left:8px;right:8px;z-index:99;} 
+body{background:whitesmoke;font-family:Hiragino Sans;font-size:small;} 
+#query{position:fixed;background:white;font-size:medium;left:8px;right:8px;z-index:99;} 
 #peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:5px;width:30px;height:30px;z-index:99;}
 #card{position:absolute;white-space:pre;word-wrap:break-word;top:50px; left:10px;right:10px;}
-.item{color:black;background:lightyellow;overflow:hidden;margin-bottom:5px;border-radius:3px;}
-.tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:5em;}.content{padding:2px;padding-left:32px;height:5em;}
-.content:first-line{color:navy; font-family:Hiragino Sans;font-weight:bold;}.chosen{background:white;opacity:0.2;} 
+.item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
+.tag{color:lime;background:lime;float:left;width:18px;padding:2px;height:5em;}.content{padding:2px;padding-left:32px;height:5em;}
+.content:first-line{color:black; font-family:Hiragino Sans;font-weight:normal;}.chosen{background:orange;opacity:0.2;} 
 .hidden{display:none;}
 </style>
 
@@ -36,9 +36,10 @@ function main(){
     list = localStorage.clip || "";
     block = list.split('\t');
     if(s){
-      block.push(s);
+      for(i=0;i<block.length;i++) if(s===block[i]){block.splice(i,1);break;}
+      block.shift(s);
       localStorage.clip = block.join('\t');
-      T("done",{option:"clearCurrent"});
+      T("done",{option:"copyCurrent"});
     }
 
     url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
