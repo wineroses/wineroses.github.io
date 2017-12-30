@@ -37,7 +37,7 @@ function main(){
     block = list.split('\t');
     if(s){
       block.push(s);
-      Store();
+      localStorage.clip = block.join('\t');
       T("done");
     }
 
