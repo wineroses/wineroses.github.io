@@ -43,7 +43,7 @@ function main(){
       }
       block.unshift(s);
       localStorage.clip = block.join('\t');
-      T("done");
+      T("done",{option:"clearCurrent"});
     }
 
     url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
