@@ -24,7 +24,7 @@ function main(){
   e = document.createElement("style");
   e.innerHTML = T.data["style"];
   document.head.appendChild(e);
-  history = (T.data["history"] || 10)-0;
+  history = T.data["history"]-0 || 10;
   
   T.closelets([
   {title:"Clear All ",
