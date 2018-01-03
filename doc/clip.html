@@ -24,6 +24,7 @@ function main(){
   e = document.createElement("style");
   e.innerHTML = T.data["style"];
   document.head.appendChild(e);
+  history = (T.data["history"] || 10)+0;
   
   T.closelets([
   {title:"Clear All ",
@@ -87,7 +88,7 @@ function Reset(){
 function Disp(){
   w = new RegExp("("+ query.value +")","i");
   list = "<div id=card>";
-  for(i=0;i<block.length;i++){
+  for(i=0;i<block.length && i<history;i++){
     s=block[i];
     if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
