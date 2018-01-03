@@ -32,7 +32,7 @@ function main(){
      T("done");
   }}
   ],function (){
-    s = T.current;
+    s = T.current || T.pboard;
     list = localStorage.clip || "";
     block = list.split('\t');
     if(s){
@@ -43,7 +43,7 @@ function main(){
       }
       block.unshift(s);
       localStorage.clip = block.join('\t');
-      T("done",{option:"clearCurrent"});
+      if(T.current) T("done",{option:"clearCurrent"});
     }
 
     url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
