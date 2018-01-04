@@ -44,15 +44,6 @@ function main(){
     T("replace",{text:s});
   }},
 
-  {title:"BackUp",
-  fn:function(){
-    Store();
-    s = block.join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
-    x = localStorage.back || "";
-    localStorage.back = s + "\t" +x;
-    T("done");
-  }},
   {title:"Dropbox",
   fn:function(){
     Store();
@@ -61,10 +52,16 @@ function main(){
     title = s.split("\n")[0];
    T("dropbox",{text:s, filename:title+".txt", direct:true});
   }},
+
   {title:"Clear All ",
   fn:function(){
-     localStorage.shot = '';
-     T("done");
+    Store();
+    s = block.join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
+    x = localStorage.back || "";
+    localStorage.back = s + "\t" +x;
+    localStorage.shot = '';
+    T("done");
   }}
   
   ],function (){
