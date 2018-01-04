@@ -30,7 +30,7 @@ function main(){
 
   s = T.text;
   list = localStorage.back || "";
-  block = list.split('\t');
+  block = list.split("\t");
   if(s){
     for(i=0;i<block.length;i++){
       if(T.line(1)==block[i].split("\n")[0]){
@@ -38,7 +38,7 @@ function main(){
       }
     }
     block.unshift(s);
-    localStorage.back = block.join('\t');
+    localStorage.back = block.join("\t");
   }
 
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
@@ -55,9 +55,9 @@ function main(){
 
 function Store(){
   block = [];
-  p = card.getElementsByClassName('content');
+  p = card.getElementsByClassName("content");
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  localStorage.back = block.join('\t');
+  localStorage.back = block.join("\t");
 }
 
 function Load(x){
@@ -83,7 +83,7 @@ function Disp(){
   list = "<div id=card>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</div></div>";
   }
   board.innerHTML = list + "</div>";
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
