@@ -26,10 +26,9 @@ function main(){
   document.head.appendChild(e);
   
   T.closelets([
-  {title:"Clear All ",
+  {title:"New ",
   fn:function(){
-     localStorage.rebind = '';
-     T("done");
+     T("done",{option:"clearAll"});
   }}
   ],function (){
     s = T.text;
