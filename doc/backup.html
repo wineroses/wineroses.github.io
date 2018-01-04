@@ -14,7 +14,7 @@ body{background:whitesmoke;font-family:Hiragino Mincho ProN;font-size:small;}
 </style>
 
 </head>
-<body onclick=Create()>
+<body>
 <input id=query onkeyup=Disp() placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
 <section id=board></section>
 
@@ -64,11 +64,6 @@ function Load(x){
   s = block[x];
   Store();
   T("replace",{text:s});
-}
-
-function Create(){
-  Store();
-  T("done",{option:"clearAll"});
 }
 
 function Remove(x){
