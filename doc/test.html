@@ -36,7 +36,7 @@ function main(){
     block = list.split('\t');
     if(s){
       for(i=0;i<block.length;i++){
-        if(s===block[i]){
+        if(T.line(1)===block[i].split("\n")[0]){
           block.splice(i,1);break;
         }
       }
