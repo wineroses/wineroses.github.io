@@ -1,6 +1,6 @@
 <html><head>
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<title> Files</title>
+<title>BackUp</title>
 
 <style>
 body{background:whitesmoke;font-family:Hiragino Mincho ProN;font-size:small;} 
@@ -29,7 +29,7 @@ function main(){
   }
 
   s = T.text;
-  list = localStorage.files || "";
+  list = localStorage.back || "";
   block = list.split('\t');
   if(s){
     for(i=0;i<block.length;i++){
@@ -38,7 +38,7 @@ function main(){
       }
     }
     block.unshift(s);
-    localStorage.files = block.join('\t');
+    localStorage.back = block.join('\t');
   }
 
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
@@ -57,7 +57,7 @@ function Store(){
   block = [];
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  localStorage.files = block.join('\t');
+  localStorage.back = block.join('\t');
 }
 
 function Load(x){
@@ -94,7 +94,7 @@ window.webkit.messageHandlers.initT.postMessage("main");
 
 </body>
 <!--
- Files for Textwell
+ BackUp for Textwell
 
  Special Thanks:
  Sortable.js
