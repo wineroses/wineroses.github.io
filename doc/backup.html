@@ -14,9 +14,9 @@ body{background:whitesmoke;font-family:Hiragino Mincho ProN;font-size:small;}
 </style>
 
 </head>
-<body>
+<body onclick=Create()>
 <input id=query onkeyup=Disp() placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
-<section id=board onclick=Create()></section>
+<section id=board></section>
 
 <script>
 function main(){
