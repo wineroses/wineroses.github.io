@@ -64,7 +64,7 @@ function main(){
     T("done");
   }}
   
-  ],function (){
+  ],function(){
     s = T.text;
     list = localStorage.shot || "";
     block = list.split('\t');
@@ -94,6 +94,11 @@ function main(){
     });
     document.ontouchmove =function(e){
       if(e.touches.length==2 && confirm('\nClear All ?')){
+        Store();
+        s = block.join("\n\n");
+        s = s.replace(/\n{3,}/g,"\n\n");
+        x = localStorage.back || "";
+        localStorage.back = s + "\t" +x;
         localStorage.shot = '';
         T("done");
       }
