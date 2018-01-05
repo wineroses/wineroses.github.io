@@ -42,17 +42,17 @@ function main(){
   }
 
   T.closelets([
-  {title:"New",
+  {title:"New ",
   fn:function(){
     Store();
     T("done",{option:"clearAll"});
   }},
   {title:"Clear All ",
   fn:function(){
-     localStorage.back = '';
+     localStorage.back = "";
      T("done");
   }}
-  ],function (){
+  ],function(){
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
   T.request({
     url:url,
@@ -63,7 +63,7 @@ function main(){
       Disp();
     }
   });
-  })
+  });
 }
 
 function Store(){
