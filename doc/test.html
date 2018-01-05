@@ -15,7 +15,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 
 </head>
 <body>
-<input id=query onkeyup=Disp() placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
+<input id=query onkeyup=Disp(1) placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
 <section id=board></section>
 
 <script>
@@ -24,7 +24,25 @@ function main(){
   e = document.createElement("style");
   e.innerHTML = T.data["style"] || "";
   document.head.appendChild(e);
-  
+
+  s = T.text;
+  list = localStorage.shot || "";
+  block = list.split('\t');
+  if(s){
+    if(list){
+      title = T.line(1);
+      for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {block.splice(i,1,s);break}
+      if(i>=block.length) block.push(s);
+    }else{
+      if(confirm("\nSplit this with a blank line ?")){
+        block = s.split(/\n\n+/);
+      }else{
+        block.push(s);
+      }
+    }
+  }
+  Disp(0);
+
   T.closelets([
   {title:"New",
   fn:function(){
@@ -65,23 +83,6 @@ function main(){
   }}
   
   ],function(){
-    s = T.text;
-    list = localStorage.shot || "";
-    block = list.split('\t');
-    if(s){
-      if(list){
-        title = T.line(1);
-        for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {block.splice(i,1,s);break}
-        if(i>=block.length) block.push(s);
-      }else{
-        if(confirm("\nSplit this with a blank line ?")){
-          block = s.split(/\n\n+/);
-        }else{
-          block.push(s);
-        }
-      }
-    }
-
     url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
     T.request({
       url:url,
@@ -89,7 +90,7 @@ function main(){
         e = document.createElement("script");
         e.innerHTML = x.responseText;
         document.head.appendChild(e);
-        Disp();
+        Disp(1);
       }
     });
     document.ontouchmove =function(e){
@@ -121,17 +122,17 @@ function Load(x){
 
 function Remove(x){
   s = "\n【"+block[x].split("\n")[0]+"】\n\nDelete this ?";
-  if(confirm(s)){block.splice(x,1);Disp();}
+  if(confirm(s)){block.splice(x,1);Disp(1);}
   Store();
 }
 
 function Reset(){
   query.value = "";
   Store();
-  Disp();
+  Disp(1);
 }
 
-function Disp(){
+function Disp(x){
         w = new RegExp("("+ query.value +")","i");
   list = "<div id=card>";
   for(i=0;i<block.length;i++){
@@ -139,7 +140,7 @@ function Disp(){
     if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   board.innerHTML = list + "</div>";
-  Sortable.create(card,{delay:100,chosenClass:"chosen"});
+  if(x) Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
 window.webkit.messageHandlers.initT.postMessage("main");
