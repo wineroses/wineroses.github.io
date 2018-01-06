@@ -71,13 +71,13 @@ function main(){
    T("dropbox",{text:s, filename:title+".txt", direct:true});
   }},
 
-  {title:"BackUp ",
+  {title:"Notes ",
   fn:function(){
     Store();
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
-    x = localStorage.back || "";
-    localStorage.back = s + "\t" +x;
+    x = localStorage.notes || "";
+    localStorage.notes = s + "\t" +x;
     localStorage.shot = '';
     T("done");
   }}
@@ -98,8 +98,8 @@ function main(){
         Store();
         s = block.join("\n\n");
         s = s.replace(/\n{3,}/g,"\n\n");
-        x = localStorage.back || "";
-        localStorage.back = s + "\t" +x;
+        x = localStorage.notes || "";
+        localStorage.notes = s + "\t" +x;
         localStorage.shot = '';
         T("done");
       }
