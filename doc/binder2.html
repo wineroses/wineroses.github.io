@@ -71,7 +71,7 @@ function main(){
    T("dropbox",{text:s, filename:title+".txt", direct:true});
   }},
 
-  {title:"Clear All ",
+  {title:"Notes ",
   fn:function(){
     Store();
     s = block.join("\n\n");
@@ -79,6 +79,7 @@ function main(){
     x = localStorage.notes || "";
     localStorage.notes = s + "\t" +x;
     localStorage.shot = '';
+    T.webData("style","");
 T("load",{url:"https://wineroses.github.io/doc/notes.html"});
 //    T("done");
   }}
