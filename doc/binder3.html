@@ -77,8 +77,7 @@ function main(){
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     localStorage.shot = '';
-    T.webData("style","");
-    T.text = s;
+    T.setData("text",s);
 T("load",{url:"https://wineroses.github.io/doc/notes2.html"});
   }}
   

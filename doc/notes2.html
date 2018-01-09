@@ -70,7 +70,7 @@ function Store(){
 function Load(x){
   s = block[x];
   Store();
-  T.webData("text",s);
+  T.setData("text",s);
   T("load",{url:"https://wineroses.github.io/doc/binder2.html"});
 }
 
