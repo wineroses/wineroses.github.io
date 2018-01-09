@@ -36,18 +36,6 @@ function main(){
   }
   Disp(0);
 
-  T.closelets([
-  {title:"New ",
-  fn:function(){
-    Store();
-    T("done",{option:"clearAll"});
-  }},
-  {title:"Clear All ",
-  fn:function(){
-     localStorage.notes = "";
-     T("done");
-  }}
-  ],function(){
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
   T.request({
     url:url,
@@ -57,7 +45,6 @@ function main(){
       document.head.appendChild(e);
       Disp(1);
     }
-  });
   });
 }
 
