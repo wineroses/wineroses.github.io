@@ -76,10 +76,9 @@ function main(){
     Store();
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
-    x = localStorage.notes || "";
-    localStorage.notes = s + "\t" +x;
     localStorage.shot = '';
     T.webData("style","");
+    T.text = s;
 T("load",{url:"https://wineroses.github.io/doc/notes.html"});
 //    T("done");
   }}
