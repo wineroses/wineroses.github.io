@@ -71,6 +71,7 @@ function Store(){
 function Load(x){
   s = block[x];
   Store();
+  localStorage.shot = '';
   T.setData("text",s);
   T("load",{url:"https://wineroses.github.io/doc/binder2.html"});
 }
