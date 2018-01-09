@@ -88,17 +88,6 @@ T("load",{url:"https://wineroses.github.io/doc/notes2.html"});
         Disp(1);
       }
     });
-    document.ontouchmove =function(e){
-      if(e.touches.length==2 && confirm('\nClear All ?')){
-        Store();
-        s = block.join("\n\n");
-        s = s.replace(/\n{3,}/g,"\n\n");
-        x = localStorage.notes || "";
-        localStorage.notes = s + "\t" +x;
-        localStorage.shot = '';
-        T("done");
-      }
-    };
   });
 }
 
