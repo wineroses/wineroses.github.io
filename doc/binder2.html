@@ -34,11 +34,7 @@ function main(){
       for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {block.splice(i,1,s);break}
       if(i>=block.length) block.push(s);
     }else{
-      if(confirm("\nSplit this with a blank line ?")){
-        block = s.split(/\n\n+/);
-      }else{
-        block.push(s);
-      }
+      block = s.split(/\n\n+/);
     }
   }
   Disp(0);
