@@ -22,11 +22,12 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 function main(){
 
   s = T.data["text"] || "";
+  t = s.split("\n")[0];
   list = localStorage.notes || "";
   block = list.split("\t");
   if(s){
     for(i=0;i<block.length;i++){
-      if(T.line(1)==block[i].split("\n")[0]){
+      if(t==block[i].split("\n")[0]){
         block.splice(i,1);break;
       }
     }
