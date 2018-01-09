@@ -25,7 +25,7 @@ function main(){
   e.innerHTML = T.data["style"] || "";
   document.head.appendChild(e);
 
-  s = T.text;
+  s = T.data["text"] || "";
   list = localStorage.shot || "";
   block = list.split('\t');
   if(s){
@@ -77,10 +77,8 @@ function main(){
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     localStorage.shot = '';
-    T.webData("style","");
-    T.text = s;
-T("load",{url:"https://wineroses.github.io/doc/notes.html"});
-//    T("done");
+    T.setData("text",s);
+T("load",{url:"https://wineroses.github.io/doc/notes2.html"});
   }}
   
   ],function(){
