@@ -64,7 +64,7 @@ function Load(x){
 }
 
 function Remove(x){
-  s = "\n【"+block[x].split("\n")[0]+"】\n\nDelete this ?";
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nDelete this note ?";
   if(confirm(s)){block.splice(x,1);Disp(1);}
   Store();
 }
