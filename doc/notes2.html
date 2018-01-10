@@ -21,6 +21,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 <script>
 function main(){
 
+  localStorage.shot = "";
   s = T.data["text"] || "";
   t = s.split("\n")[0];
   list = localStorage.notes || "";
@@ -58,7 +59,6 @@ function Store(){
 function Load(x){
   s = block[x];
   Store();
-  localStorage.shot = "";
   T.setData("text",s);
   T("load",{url:"https://wineroses.github.io/doc/binder2.html"});
 }
