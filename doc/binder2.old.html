@@ -36,10 +36,6 @@ function main(){
     }else{
       block = s.split(/\n\n+/);
     }
-  }else{
-    if(list==""){
-      T("load",{url: "https://wineroses.github.io/doc/notes2.html" });
-    }
   }
   localStorage.shot = block.join('\t');
   Disp(0);
@@ -69,7 +65,7 @@ function main(){
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     T.setData("text",s);
-T("load",{url: "https://wineroses.github.io/doc/notes2.html" });
+T("load",{url:"https://wineroses.github.io/doc/notes2.html"});
   }},
 
   {title:"Dropbox",
