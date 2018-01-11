@@ -21,7 +21,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 <script>
 function main(){
 
-  s = T.data["text"] || "";
+  s = T.data.text || "";
   t = s.split("\n")[0];
   list = localStorage.notes || "";
   block = list.split("\t");
