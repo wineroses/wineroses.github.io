@@ -67,9 +67,13 @@ function Store(){
 function Load(x){
   s = block[x];
   Store();
-  localStorage.shot = "";
-  T.setData("text",s);
-  T("load",{url:"https://wineroses.github.io/doc/binder2.html"});
+  if(T.data["binder"]){
+    localStorage.shot = "";
+    T.setData("text",s);
+    T("load",{url:"https://wineroses.github.io/doc/binder2.html"});
+  }else{
+    T("replace", {text:s});
+  }
 }
 
 function Remove(x){
