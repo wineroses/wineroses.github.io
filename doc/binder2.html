@@ -64,15 +64,6 @@ function main(){
     T("replace",{text:s});
   }},
 
-  {title:"Dropbox",
-  fn:function(){
-    Store();
-    s = block.join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
-    title = s.split("\n")[0];
-   T("dropbox",{text:s, filename:title+".txt", direct:true});
-  }},
-
   {title:"Notes ",
   fn:function(){
     Store();
@@ -80,6 +71,15 @@ function main(){
     s = s.replace(/\n{3,}/g,"\n\n");
     T.setData("text",s);
 T("load",{url: "https://wineroses.github.io/doc/notes2.html" });
+  }},
+
+  {title:"Dropbox",
+  fn:function(){
+    Store();
+    s = block.join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
+    title = s.split("\n")[0];
+   T("dropbox",{text:s, filename:title+".txt", direct:true});
   }}
 
   ],function(){
