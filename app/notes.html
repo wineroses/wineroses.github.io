@@ -21,6 +21,10 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 <script>
 function main(){
 
+  e = document.createElement("style");
+  e.innerHTML = T.data.NoteStyle || "";
+  document.head.appendChild(e);
+
   s = T.data.text || T.text;
   t = s.split("\n")[0];
   list = localStorage.notes || "";
