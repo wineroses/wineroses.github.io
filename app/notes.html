@@ -25,7 +25,7 @@ function main(){
   e.innerHTML = T.data.NoteStyle || "";
   document.head.appendChild(e);
 
-  s = T.data.text || T.text;
+  s = T.data.text || "";
   t = s.split("\n")[0];
   list = localStorage.notes || "";
   block = list.split("\t");
