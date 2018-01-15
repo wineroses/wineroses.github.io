@@ -19,6 +19,8 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 <section id=board></section>
 
 <script>
+window.webkit.messageHandlers.initT.postMessage("main");
+
 function main(){
 
   e = document.createElement("style");
@@ -132,7 +134,6 @@ function Disp(x){
   if(x) Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-window.webkit.messageHandlers.initT.postMessage("main");
 </script>
 
 </body>
