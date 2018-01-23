@@ -46,7 +46,7 @@ T.closelets([
   {title:"New ",
   fn:function(){
     Store();
-    localStorage.shot = "";
+    if(T.data.binder) localStorage.shot = "";
     T("done",{option:"clearAll"});
   }}
 ],function(){
@@ -73,7 +73,7 @@ function Store(){
 function Load(x){
   s = block[x];
   Store();
-  if(T.data["binder"]){
+  if(T.data.binder){
     localStorage.shot = "";
     T.setData("text",s);
     T("load",{url:"https://wineroses.github.io/app/binder.html"});
