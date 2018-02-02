@@ -35,7 +35,7 @@ function main(){
     if(list){
       title = T.line(1);
       for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {Array.prototype.splice.apply(block,[i,1].concat(d));break}
-      if(i>=block.length) Array.prototype.push.apply(block, d);
+      if(i>=block.length) block.concat(d);
     }else{
       block = d;
     }
