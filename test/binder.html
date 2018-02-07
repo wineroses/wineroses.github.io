@@ -5,7 +5,7 @@
 <style>
 body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 #menu{z-index:99;}
-#plus{position:fixed;color:white;background:black;border-radius:5px;font-size:large;top:5px;left:8px;}
+#plus{position:fixed;color:white;font-weight:bold;border-radius:5px;font-size:x-large;top:5px;left:8px;}
 #query{position:fixed;background:ivory;font-size:medium;left:36px;right:8px;} 
 #peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:5px;width:30px;height:30px;}
 #card{position:absolute;white-space:pre;word-wrap:break-word;top:50px; left:10px;right:10px;}
@@ -17,7 +17,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 
 </head>
 <body>
-<div id=menu><span id=plus onclick=NewOne()>＋</span> <input id=query onkeyup=Disp(1) placeholder='⚲ Binder' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span></div>
+<div id=menu><span id=plus onclick=NewOne()> ＋ </span> <input id=query onkeyup=Disp(1) placeholder='⚲ Binder' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span></div>
 <section id=board></section>
 
 <script>
