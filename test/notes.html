@@ -43,20 +43,6 @@ function main(){
   }
   Disp(0);
 
-T.closelets([
-  {title:"Compile",
-  fn:function(){
-    Store();
-    Check = function(x){
-      s = new RegExp("("+ query.value +")","i");
-      return s.test(x);
-    }
-    s = block.filter(Check).join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
-    T("replace",{text:s});
-  }}
-
-],function(){
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
   T.request({
     url:url,
@@ -67,7 +53,6 @@ T.closelets([
       Disp(1);
     }
   });
- });
 }
 
 function Store(){
