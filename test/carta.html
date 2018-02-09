@@ -52,7 +52,7 @@ function main(){
 
   T.closelets([
 
-  {title:"Compile",
+  {title:"Markdown",
   fn:function(){
     Store();
     Check = function(x){
@@ -60,7 +60,7 @@ function main(){
       return s.test(x);
     }
     s = block.filter(Check).join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
+    s = "# "+s.replace(/\n{3,}/g,"\n\n## ");
     T("replace",{text:s});
   }},
 
