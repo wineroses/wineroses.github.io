@@ -26,6 +26,8 @@ function main(){
   Binder = "https://wineroses.github.io/test/binder.html";
   Carta = "https://wineroses.github.io/test/carta.html";
 
+  if(T.data.carta) localStorage.shot = "";
+
   e = document.createElement("style");
   e.innerHTML = T.data.NoteStyle || "";
   document.head.appendChild(e);
@@ -66,7 +68,7 @@ function Store(){
 
 function NewOne(){
   Store();
-  if(T.data.carta || T.data.binder) localStorage.shot = "";
+  if(T.data.binder) localStorage.shot = "";
   T("done",{option:"clearAll"});
 }
 
