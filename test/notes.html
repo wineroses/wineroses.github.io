@@ -23,6 +23,7 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
+  Binder = "https://wineroses.github.io/test/binder.html";
   Carta = "https://wineroses.github.io/test/carta.html";
 
   e = document.createElement("style");
@@ -65,17 +66,21 @@ function Store(){
 
 function NewOne(){
   Store();
-  if(T.data.carta) localStorage.shot = "";
+  if(T.data.carta || T.data.binder) localStorage.shot = "";
   T("done",{option:"clearAll"});
 }
 
 function Load(x){
   s = block[x];
   Store();
-  if(T.data.carta){
+  if(T.data.carta || T.data.binder){
     localStorage.shot = "";
     T.setData("text",s);
-    T("load",{url:Carta});
+    if(T.data.carta){
+      T("load",{url:Carta});
+    }else{
+      T("load",{url:Binder});
+    }
   }else{
     T("replace", {text:s});
   }
