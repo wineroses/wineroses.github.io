@@ -3,9 +3,8 @@
 <title>Notes</title>
 
 <style>
-body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
-#plus{position:fixed;color:brown; text-align:center; font-size:16px; font-weight:bold; border-radius:50%;width:24px;height:24px;top:12px;left:8px;z-index:99;}
-#query{position:fixed;color:black;background:white;font-size:medium;left:36px;right:8px; border:1px sienna solid; z-index:99;}
+body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;} 
+#query{position:fixed;background:white;font-size:medium;left:8px;right:8px;z-index:99;} 
 #peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:5px;width:30px;height:30px;z-index:99;}
 #card{position:absolute;white-space:pre;word-wrap:break-word;top:50px; left:10px;right:10px;}
 .item{color:black;background:white;overflow:hidden;margin-bottom:5px;border:0;border-radius:3px; border:1px lightgray solid;height:7em;}
@@ -16,17 +15,13 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 
 </head>
 <body>
-<span id=plus onclick=NewOne()>＋</span> <input id=query onkeyup=Disp(1) placeholder='⚲ Notes' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
+<input id=query onkeyup=Disp(1) placeholder='⚲ Notes' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
 <section id=board></section>
 
 <script>
-webkit.messageHandlers.initT.postMessage("main");
+window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
-  Binder = "https://wineroses.github.io/test/binder.html";
-  Carta = "https://wineroses.github.io/test/carta.html";
-
-  if(T.data.carta) localStorage.shot = "";
 
   e = document.createElement("style");
   e.innerHTML = T.data.NoteStyle || "";
@@ -47,6 +42,14 @@ function main(){
   }
   Disp(0);
 
+T.closelets([
+  {title:"New ",
+  fn:function(){
+    Store();
+    localStorage.shot = "";
+    T("done",{option:"clearAll"});
+  }}
+],function(){
   url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
   T.request({
     url:url,
@@ -57,6 +60,7 @@ function main(){
       Disp(1);
     }
   });
+ });
 }
 
 function Store(){
@@ -66,23 +70,13 @@ function Store(){
   localStorage.notes = block.join("\t");
 }
 
-function NewOne(){
-  Store();
-  if(T.data.binder) localStorage.shot = "";
-  T("done",{option:"clearAll"});
-}
-
 function Load(x){
   s = block[x];
   Store();
-  if(T.data.carta || T.data.binder){
+  if(T.data["binder"]){
     localStorage.shot = "";
     T.setData("text",s);
-    if(T.data.carta){
-      T("load",{url:Carta});
-    }else{
-      T("load",{url:Binder});
-    }
+    T("load",{url:"https://wineroses.github.io/app/binder.html"});
   }else{
     T("replace", {text:s});
   }
@@ -105,7 +99,7 @@ function Disp(x){
   list = "<div id=card>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>"+("0000"+s.length).slice(-4)+"</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   board.innerHTML = list + "</div>";
   if(x) Sortable.create(card,{delay:100,chosenClass:"chosen"});
