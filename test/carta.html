@@ -60,8 +60,8 @@ function main(){
       return s.test(x);
     }
     s = block.filter(Check).join("\n\n");
-    if(T.data.markdown){
-      s = T.data.markdown+s.replace(/\n{2,}/g,"\n\n"+T.data.markdown);
+    if(T.data.head){
+      s = T.data.head+s.replace(/\n{2,}/g,"\n\n"+T.data.head);
     }else{
       s = s.replace(/\n{3,}/g,"\n\n ");
     }
