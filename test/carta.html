@@ -61,7 +61,7 @@ function main(){
     }
     s = block.filter(Check).join("\n\n");
     if(T.data.markdown){
-      s = "# "+s.replace(/\n{2,}/g,"\n\n#### ");
+      s = T.data.markdown+s.replace(/\n{2,}/g,"\n\n"+T.data.markdown);
     }else{
       s = s.replace(/\n{3,}/g,"\n\n ");
     }
