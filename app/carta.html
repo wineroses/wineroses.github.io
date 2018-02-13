@@ -119,7 +119,7 @@ function Load(x){
 }
 
 function Remove(x){
-  s = "\n【"+block[x].split("\n")[0]+"】\n\nDelete this card ?";
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nDiscard this card ?";
   if(confirm(s)){block.splice(x,1);Disp(1);}
   Store();
 }
