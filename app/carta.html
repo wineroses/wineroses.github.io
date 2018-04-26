@@ -122,11 +122,19 @@ function Remove(x){
   s = "\n【"+block[x].split("\n")[0]+"】\n\nMove this to Clip ?";
   if(confirm(s)){
     T.copy(block[x]);
-    localStorage.clip=block[x]+"\t"+localStorage.clip;
+    addClip(block[x]);
     block.splice(x,1);
     Disp(1);
   }
   Store();
+}
+
+function addClip(x){
+  list = localStorage.clip.split('\t');
+  for(i=0;list.length;i++){
+    if(list[i]==x) list.splice(i,1);
+  }
+  localStorage.clip = x +"\t"+ list.join('\t');
 }
 
 function Reset(){
