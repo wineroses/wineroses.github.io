@@ -119,7 +119,7 @@ function Load(x){
 }
 
 function Remove(x){
-  s = "\n【"+block[x].split("\n")[0]+"】\n\nDiscard this card ?";
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nMove this to Clip ?";
   if(confirm(s)){
     T.copy(block[x]);
     localStorage.clip=block[x]+"\t"+localStorage.clip;
