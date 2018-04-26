@@ -31,18 +31,13 @@ function main(){
   document.head.appendChild(e);
   
   T.closelets([
-  {title:"Notes ",
+  {title:"Clear All ",
   fn:function(){
+    localStorage.clip = '';
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     T.setData("text",s);
     T("load",{url:Notes});
-  }},
-
-  {title:"Clear All ",
-  fn:function(){
-     localStorage.clip = '';
-     T("done");
   }}
   ],function (){
     s = T.current || T.pboard;
