@@ -130,11 +130,11 @@ function Remove(x){
 }
 
 function addClip(x){
-  list = localStorage.clip.split('\t');
-  for(i=0;list.length;i++){
-    if(list[i]==x) list.splice(i,1);
+  clip = localStorage.clip.split('\t');
+  for(i=0;clip.length;i++){
+    if(clip[i]==x) clip.splice(i,1);
   }
-  localStorage.clip = x +"\t"+ list.join('\t');
+  localStorage.clip = x +"\t"+ clip.join('\t');
 }
 
 function Reset(){
