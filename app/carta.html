@@ -119,7 +119,7 @@ function Load(x){
 }
 
 function Remove(x){
-  s = "\n【"+block[x].split("\n")[0]+"】\n\nMove to Clip ?";
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nMove to Clip?";
   if(confirm(s)){
     T.copy(block[x]);
     addClip(block[x]);
@@ -131,7 +131,7 @@ function Remove(x){
 
 function addClip(x){
   clip = localStorage.clip.split('\t');
-  for(i=0;clip.length;i++){
+  for(i=0;i<clip.length;i++){
     if(clip[i]==x) clip.splice(i,1);
   }
   localStorage.clip = x +"\t"+ clip.join('\t');
