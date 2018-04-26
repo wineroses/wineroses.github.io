@@ -36,7 +36,7 @@ function main(){
     localStorage.clip = '';
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
-    s = "clip\t"+s;
+    s = "clip\n\n"+s;
     T.setData("text",s);
     T("load",{url:Notes});
   }}
