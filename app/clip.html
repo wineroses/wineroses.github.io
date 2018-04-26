@@ -22,6 +22,7 @@ body{background:whitesmoke;font-family:Hiragino Sans;font-size:small;}
 window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
+  Notes = "https://wineroses.github.io/app/notes.html";
 
   hist = 30;
 
@@ -30,6 +31,14 @@ function main(){
   document.head.appendChild(e);
   
   T.closelets([
+  {title:"Notes ",
+  fn:function(){
+    s = block.join("\n\n");
+    s = s.replace(/\n{3,}/g,"\n\n");
+    T.setData("text",s);
+    T("load",{url:Notes});
+  }},
+
   {title:"Clear All ",
   fn:function(){
      localStorage.clip = '';
