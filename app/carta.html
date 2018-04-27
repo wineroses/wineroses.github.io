@@ -74,7 +74,7 @@ function main(){
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     T.setData("text",s);
-T("load",{url:Notes});
+    T("load",{url:Notes});
   }},
 
   {title:"Dropbox",
@@ -97,6 +97,9 @@ T("load",{url:Notes});
         Disp(1);
       }
     });
+    document.ongesturestart = function(){
+      alert("test");
+    }
   });
 }
 
