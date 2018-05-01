@@ -76,10 +76,10 @@ function Store(){
 }
 
 function Load(x){
-  s = block[x];
+  text = block[x];
   if(mode=="1") {block.splice(x,1);Disp();}
   Store();
-  T("insert",{text:s});
+  T("insert",{text:text});
 }
 
 function Remove(x){
