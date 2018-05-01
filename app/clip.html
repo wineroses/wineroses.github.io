@@ -22,9 +22,10 @@ body{background:whitesmoke;font-family:Hiragino Sans;font-size:small;}
 window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
+  mode = T.data["mode"] || 0;
 
   e = document.createElement("style");
-  e.innerHTML = T.data["style"];
+  e.innerHTML = T.data["style"] || "";
   document.head.appendChild(e);
   
   T.closelets([
@@ -76,6 +77,7 @@ function Store(){
 
 function Load(x){
   s = block[x];
+  block.splice(x,1);
   Store();
   T("insert",{text:s});
 }
