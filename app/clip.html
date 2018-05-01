@@ -77,7 +77,7 @@ function Store(){
 
 function Load(x){
   s = block[x];
-  if(mode=="1") block.splice(x,1);
+  if(mode=="1") {block.splice(x,1);Disp();}
   Store();
   T("insert",{text:s});
 }
