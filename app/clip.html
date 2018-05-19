@@ -31,13 +31,13 @@ function main(){
   T.closelets([
   {title:"Clear All ",
   fn:function(){
-    localStorage.clip = '';
     s = block.join("\n\n");
     s = s.replace(/\n{3,}/g,"\n\n");
     d = new Date().toLocaleString();
     s = "clip: "+d+"\n"+s;
     notes = localStorage.notes || '';
     localStorage.notes = s + "\t" + notes;
+    localStorage.clip = '';
     T("done");
   }}
   ],function (){
@@ -79,6 +79,7 @@ function Load(x){
   text = block[x];
   if(mode=="1") {block.splice(x,1);Disp();}
   Store();
+  T.copy(text);
   T("insert",{text:text});
 }
 
