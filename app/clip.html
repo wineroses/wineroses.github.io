@@ -76,7 +76,7 @@ function Store(){
 }
 
 function Load(x){
-  text = block[x];
+  text = block[x]+"\n";
   if(mode=="1") {block.splice(x,1);Disp();}
   Store();
   T.copy(text);
