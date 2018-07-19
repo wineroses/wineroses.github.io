@@ -1,7 +1,7 @@
 <meta name=viewport content=initial-scale=1,user-scalable=no>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-<title>Fire view</title>
+<title>View</title>
 
 <style>
 body{font-size:medium;font-family:serif;background:white;}
@@ -19,11 +19,12 @@ img{max-width:350px;}
 </style>
 
 
-<div id=view></div>
+<div id=fire></div>
 
 <script>
 s = localStorage.fire || "";
 marked.setOptions({breaks:true, langPrefix:""});
-view.innerHTML = marked(s);
+
+fire.innerHTML = marked(s);
 </script>
 
