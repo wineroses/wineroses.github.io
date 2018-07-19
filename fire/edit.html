@@ -12,6 +12,11 @@ editor.onblur=function(){
   localStorage.fire = editor.value;
 }
 
+s=location.search;
+if(s){
+  editor.value = editor.value +"\n"+ s;
+}
+
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
