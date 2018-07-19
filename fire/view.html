@@ -1,0 +1,13 @@
+<meta name=viewport content=initial-scale=1,user-scalable=no>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<title>Fire view</title>
+
+<div id=view></div>
+
+<script>
+s = localStorage.fire || "";
+marked.setOptions({breaks:true, langPrefix:""});
+view.innerHTML = marked(s);
+</script>
+
