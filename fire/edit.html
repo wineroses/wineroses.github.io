@@ -14,7 +14,7 @@ editor.onblur=function(){
 
 s=location.search;
 if(s){
-  editor.value = editor.value +"\n"+ s;
+  editor.value = editor.value +"\n"+ decodeURIComponent(s.substr(1));
 }
 
 x0=0;
