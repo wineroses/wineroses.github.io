@@ -39,16 +39,16 @@ p=0;
 clip=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length>3) Preview();
+  if(e.touches.length>2) Preview();
 }
 
 document.ontouchmove = function(e){
   x=e.touches[0].pageX;
   d=document.getSelection();
-  m=(e.touches.length==2 || d.toString().length)? "extend":"move";
+  m=(d.toString().length)? "extend":"move";
   if(x-p>8){
     e.preventDefault();
-    if(e.touches.length==3){
+    if(e.touches.length==2){
       if(clip) document.execCommand('redo');
       clip=0;
     }else{
@@ -58,7 +58,7 @@ document.ontouchmove = function(e){
   }
   if(p-x>8){
     e.preventDefault();
-    if(e.touches.length==3){
+    if(e.touches.length==2){
       if(clip) document.execCommand('undo');
       clip=0;
     }else{
