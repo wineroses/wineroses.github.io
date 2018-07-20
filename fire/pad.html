@@ -60,6 +60,7 @@ function Preview(){
     fire.style.display = "block";
     view.style.display = "none";
   }else{
+    fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     view.innerHTML = marked(fire.value);
     fire.style.display = "none";
