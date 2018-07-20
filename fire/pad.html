@@ -1,0 +1,38 @@
+<meta name=viewport content=initial-scale=1,user-scalable=no>
+<title>FirePad</title>
+<style>
+body{color;black;background:whitesmoke;}
+#fire{font-size:20px;background:none;width:100%;height:100%;border:0;white-space:pre-wrap;}
+</style>
+<textarea id=fire></textarea>
+
+<script>
+viewURL = “https://wineroses.github.io/fire/view.html”;
+
+fire.value = localStorage.fire || "";
+fire.onblur=function(){
+  localStorage.fire = fire.value;
+}
+
+s=location.search;
+if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
+
+x0=0;
+document.ontouchstart=function(e){
+  x0=e.touches[0].pageX;
+  if(touches.length>1) location=viewURL;
+};
+
+document.ontouchmove=function(e){
+  x=e.touches[0].pageX;
+  d=document.getSelection();
+  if(x-x0>8){
+    d.modify("move","right","character");
+    x0=x;
+  }
+  if(x0-x>8){
+    d.modify("move","left","character");
+    x0=x;
+  }
+}
+</script>
