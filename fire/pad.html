@@ -39,7 +39,9 @@ p=0;
 clip=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
+  clip=1;
   if(e.touches.length>2) Preview();
+  
 }
 
 document.ontouchmove = function(e){
