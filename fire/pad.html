@@ -20,7 +20,7 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
-  if(e.touches.length>1) location=viewURL;
+  if(e.touches.length==2) location=viewURL;
 };
 
 document.ontouchmove=function(e){
