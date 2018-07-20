@@ -23,8 +23,11 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
-  // if(e.touches.length==2) open(“https://wineroses.github.io/fire/view.html”);
-};
+}
+
+document.ongesturestart=function(e){
+  open(“https://wineroses.github.io/fire/view.html”);
+}
 
 document.ontouchmove=function(e){
   x=e.touches[0].pageX;
