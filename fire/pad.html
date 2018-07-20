@@ -57,13 +57,13 @@ document.ontouchmove=function(e){
 function Preview(){
   localStorage.fire = fire.value;
   if(flag){
-    fire.display = "block";
-    view.display = "none";
+    fire.style.display = "block";
+    view.style.display = "none";
   }else{
     marked.setOptions({breaks:true, langPrefix:""});
     view.innerHTML = marked(fire.value);
-    fire.display = "none";
-    view.display = "block";
+    fire.style.display = "none";
+    view.style.display = "block";
   }
   flag = 1-flag;
 }
