@@ -11,7 +11,7 @@ body{color;black;background:whitesmoke;}
 
 
 <script>
-view = “https://wineroses.github.io/fire/view.html”;
+View=“https://wineroses.github.io/fire/view.html”;
 
 fire.value = localStorage.fire || "";
 fire.onblur=function(){
@@ -24,7 +24,7 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
-  if(e.touches.length==2) location=view;
+  if(e.touches.length==2) location=View;
 };
 
 document.ontouchmove=function(e){
