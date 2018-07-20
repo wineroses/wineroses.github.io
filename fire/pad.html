@@ -22,7 +22,7 @@ img{max-width:350px;}
 </div>
 
 <script>
-// viewURL = “https://wineroses.github.io/fire/view.html”;
+viewURL = “https://wineroses.github.io/fire/view.html”;
 
 fire.value = localStorage.fire || "";
 fire.onblur=function(){
@@ -35,7 +35,7 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
-  if(e.touches.length==2) Preview();
+  if(e.touches.length==2) location=viewURL;
 };
 
 document.ontouchmove=function(e){
