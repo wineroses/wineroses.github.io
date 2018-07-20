@@ -1,0 +1,3 @@
+s=location.search;
+if(s) localStorage.fire = localStorage.fire +"\n"+ decodeURIComponent(s.substr(1));
+location.href = “pad.html”;
