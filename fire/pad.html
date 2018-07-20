@@ -1,28 +1,17 @@
 <meta name=viewport content=initial-scale=1,user-scalable=no>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <title>FirePad</title>
 <style>
 body{color;black;background:whitesmoke;}
 #fire{font-size:20px;background:none;width:100%;height:100%;border:0;white-space:pre-wrap;}
 
-h1,h2,h3,h4,h5,h6{color:darkblue;font-family:sans-serif;margin:0;border-bottom:1px #eee solid;}
-hr{border:1px #eee solid;}
-ul,ol{font-family:Hiragino Mincho ProN;}
-blockquote{margin:0px;border-left:20px #fff groove;}
-table{border-left:1px silver solid;border-top:1px silver solid;border-spacing:0;}
-th{background:beige;border-right:1px silver solid;border-bottom:1px silver solid;}
-td{border-right:1px silver solid;border-bottom:1px silver solid;}
-pre{background:beige;padding:10px}
-strong{color:red;}
-em{background:yellow;}
-img{max-width:350px;}
 </style>
-<div id=view>
+
 <textarea id=fire></textarea>
-</div>
+
 
 <script>
-viewURL = “https://wineroses.github.io/fire/view.html”;
+view = “https://wineroses.github.io/fire/view.html”;
 
 fire.value = localStorage.fire || "";
 fire.onblur=function(){
@@ -35,7 +24,7 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 x0=0;
 document.ontouchstart=function(e){
   x0=e.touches[0].pageX;
-  if(e.touches.length==2) location=viewURL;
+  if(e.touches.length==2) location=view;
 };
 
 document.ontouchmove=function(e){
@@ -51,8 +40,4 @@ document.ontouchmove=function(e){
   }
 }
 
-function Preview(){
-  marked.setOptions({breaks:true, langPrefix:""});
-  view.innerHTML = marked(fire.value);
-}
 </script>
