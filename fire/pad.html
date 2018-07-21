@@ -46,7 +46,7 @@ clip=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
   clip=1;
-  if(e.touches.length>2) Preview();
+  if(e.touches.length==2) Preview();
   
 }
 
@@ -56,22 +56,12 @@ document.ontouchmove = function(e){
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
     e.preventDefault();
-    if(e.touches.length==2){
-      if(clip) document.execCommand('redo');
-      clip=0;
-    }else{
-      d.modify(m,"right","character");
-    }
+    d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
     e.preventDefault();
-    if(e.touches.length==2){
-      if(clip) document.execCommand('undo');
-      clip=0;
-    }else{
-      d.modify(m,"left","character");
-    }
+    d.modify(m,"left","character");
     p=x;
   }
 }
