@@ -5,7 +5,7 @@
 <title>FirePad</title>
 <style>
 body{color;black;background:whitesmoke;}
-#fire{font-size:large; background:none;width:100%;height:100%;border:0;white-space:pre-wrap;}
+#fire{font-size:18px;background:none;width:100%;height:100%;border:0;white-space:pre-wrap;}
 
 h1,h2,h3,h4,h5,h6{color:darkblue;font-family:sans-serif;margin:0;border-bottom:1px #eee solid;}
 hr{border:1px #eee solid;}
@@ -24,7 +24,12 @@ img{max-width:340px;}
 <div id=view style='display:hidden;'></div>
 
 <script>
-// view=“https://wineroses.github.io/fire/view.html”;
+s = localStorage.style || “”;
+if(s){
+  e=document.createElement("style");
+  e.innerHTML=s;
+  document.body.appendChild(e);
+}
 
 var flag=0;
 
@@ -74,12 +79,14 @@ document.ontouchmove = function(e){
 function Preview(){
   localStorage.fire = fire.value;
   if(flag){
+    document.title = “Preview”;
     fire.style.display = "block";
     view.style.display = "none";
   }else{
     fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     view.innerHTML = marked(fire.value);
+    document.title = “FirePad”;
     fire.style.display = "none";
     view.style.display = "block";
   }
