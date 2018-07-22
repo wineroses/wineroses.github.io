@@ -39,9 +39,6 @@ fire.onblur=function(){
   localStorage.fire = fire.value;
 }
 
-s=location.search;
-if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
-
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
