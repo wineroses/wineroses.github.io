@@ -7,7 +7,7 @@
 body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin:0;}
 #fire{font-size:18px;background:none;width:100%;height:100%;padding:8px;border:0;white-space:pre-wrap;}
 
-#view{padding:8px;}
+#preview{padding:8px;}
 h1,h2,h3,h4,h5,h6{color:darkblue;font-family:sans-serif;margin:0;border-bottom:1px #eee solid;}
 hr{border:1px #eee solid;}
 ul,ol{font-family:serif;}
@@ -22,7 +22,7 @@ img{max-width:340px;}
 </style>
 
 <textarea id=fire></textarea>
-<div id=view style='display:hidden;'></div>
+<div id=preview style='display:hidden;'></div>
 
 <script>
 s = localStorage.style || "";
@@ -45,7 +45,7 @@ if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2) Preview();
+  if(e.touches.length==2) dispPreview();
   
 }
 
@@ -65,19 +65,19 @@ document.ontouchmove = function(e){
   }
 }
 
-function Preview(){
+function dispPreview(){
   localStorage.fire = fire.value;
   if(flag){
     document.title = "FirePad";
     fire.style.display = "block";
-    view.style.display = "none";
+    preview.style.display = "none";
   }else{
     fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
-    view.innerHTML = marked(fire.value);
+    preview.innerHTML = marked(fire.value);
     document.title = "Preview";
     fire.style.display = "none";
-    view.style.display = "block";
+    preview.style.display = "block";
   }
   flag = 1-flag;
 }
