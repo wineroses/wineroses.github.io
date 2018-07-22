@@ -67,14 +67,14 @@ document.ontouchmove = function(e){
 function Preview(){
   localStorage.fire = fire.value;
   if(flag){
-    document.title = "Preview";
+    document.title = "FirePad";
     fire.style.display = "block";
     view.style.display = "none";
   }else{
     fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     view.innerHTML = marked(fire.value);
-    document.title = "FirePad";
+    document.title = "Preview";
     fire.style.display = "none";
     view.style.display = "block";
   }
