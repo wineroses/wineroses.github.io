@@ -36,7 +36,10 @@ var flag=0;
 
 text = localStorage.fire || "";
 s = location.search;
-if(s) text+= "\n" + decodeURIComponent(s.substr(1));
+if(s){
+  text+= "\n" + decodeURIComponent(s.substr(1));
+  localStorage.fire = text;
+}
 fire.value = text;
 fire.onblur=function(){
   localStorage.fire = fire.value;
