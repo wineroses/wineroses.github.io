@@ -42,10 +42,8 @@ s=location.search;
 if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 
 p=0;
-clip=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  clip=1;
   if(e.touches.length==2) Preview();
   
 }
@@ -69,12 +67,14 @@ document.ontouchmove = function(e){
 function Preview(){
   localStorage.fire = fire.value;
   if(flag){
+    document.title = "Preview";
     fire.style.display = "block";
     view.style.display = "none";
   }else{
     fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     view.innerHTML = marked(fire.value);
+    document.title = "FirePad";
     fire.style.display = "none";
     view.style.display = "block";
   }
