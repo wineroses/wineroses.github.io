@@ -1,17 +1,38 @@
-<meta name=viewport content=initial-scale=1,user-scalable=no>
+<meta name="viewport" content="initial-scale=1,user-scalable=no">
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <title>FirePad</title>
 <style>
-body{color;black;background:whitesmoke;}
-#fire{font-size:20px;background:none;width:100%;height:100%;border:0;white-space:pre-wrap;}
+body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin:0;}
+#fire{font-size:18px;background:none;width:100%;height:100%;padding:5px;border:0;white-space:pre-wrap;}
 
+#view{margin:5px;}
+h1,h2,h3,h4,h5,h6{color:darkblue;font-family:sans-serif;margin:0;border-bottom:1px #eee solid;}
+hr{border:1px #eee solid;}
+ul,ol{font-family:serif;}
+blockquote{margin:0px;border-left:20px #fff groove; white-space:pre;word-wrap:break-word;}
+table{border-left:1px silver solid;border-top:1px silver solid;border-spacing:0;}
+th{background:beige;border-right:1px silver solid;border-bottom:1px silver solid;}
+td{border-right:1px silver solid;border-bottom:1px silver solid;}
+pre{background:beige;padding:10px;white-space:pre;word-wrap:break-word;}
+strong{color:red;}
+em{background:yellow;}
+img{max-width:340px;}
 </style>
 
 <textarea id=fire></textarea>
-
+<div id=view style='display:hidden;'></div>
 
 <script>
-// view=“https://wineroses.github.io/fire/view.html”;
+s = localStorage.style || "";
+if(s){
+  e=document.createElement("style");
+  e.innerHTML=s;
+  document.body.appendChild(e);
+}
+
+var flag=0;
 
 fire.value = localStorage.fire || "";
 fire.onblur=function(){
@@ -21,22 +42,44 @@ fire.onblur=function(){
 s=location.search;
 if(s) fire.value = fire.value +"\n"+ decodeURIComponent(s.substr(1));
 
-x0=0;
-document.ontouchstart=function(e){
-  x0=e.touches[0].pageX;
+p=0;
+document.ontouchstart = function(e){
+  p=e.touches[0].pageX;
+  if(e.touches.length==2) Preview();
+  
 }
 
-document.ontouchmove=function(e){
+document.ontouchmove = function(e){
   x=e.touches[0].pageX;
   d=document.getSelection();
-  if(x-x0>8){
-    d.modify("move","right","character");
-    x0=x;
+  m=(d.toString().length)? "extend":"move";
+  if(x-p>8){
+    e.preventDefault();
+    d.modify(m,"right","character");
+    p=x;
   }
-  if(x0-x>8){
-    d.modify("move","left","character");
-    x0=x;
+  if(p-x>8){
+    e.preventDefault();
+    d.modify(m,"left","character");
+    p=x;
   }
+}
+
+function Preview(){
+  localStorage.fire = fire.value;
+  if(flag){
+    document.title = "FirePad";
+    fire.style.display = "block";
+    view.style.display = "none";
+  }else{
+    fire.blur();
+    marked.setOptions({breaks:true, langPrefix:""});
+    view.innerHTML = marked(fire.value);
+    document.title = "Preview";
+    fire.style.display = "none";
+    view.style.display = "block";
+  }
+  flag = 1-flag;
 }
 
 </script>
