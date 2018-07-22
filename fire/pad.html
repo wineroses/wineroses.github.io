@@ -1,4 +1,4 @@
-<meta name="viewport" content="initial-scale=1,user-scalable=no">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
@@ -34,7 +34,10 @@ if(s){
 
 var flag=0;
 
-fire.value = localStorage.fire || "";
+text = localStorage.fire || "";
+s = location.search;
+if(s) text+= "\n" + decodeURIComponent(s.substr(1));
+fire.value = text;
 fire.onblur=function(){
   localStorage.fire = fire.value;
 }
@@ -42,7 +45,7 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2) dispPreview();
+  if(e.touches.length==2) View();
   
 }
 
@@ -62,7 +65,7 @@ document.ontouchmove = function(e){
   }
 }
 
-function dispPreview(){
+function View(){
   localStorage.fire = fire.value;
   if(flag){
     document.title = "FirePad";
