@@ -1,6 +1,8 @@
 <html><head>
-<meta name=viewport content=initial-scale=1,user-scalable=no>
-<title>Carta</title>
+<meta name="viewport" content="initial-scale=1,user-scalable=no">
+
+<script src="https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js"></script>
+<title>FireCard</title>
 
 <style>
 body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
@@ -16,145 +18,40 @@ body{background:burlywood;font-family:Hiragino Mincho ProN;font-size:small;}
 
 </head>
 <body>
-<span id=plus onclick=NewOne()>＋</span> <input id=query onkeyup=Disp(1) placeholder='⚲' onfocus=Store() onblur=Store()><span id=peke onclick=Reset()>×</span>
 <section id=board></section>
 
 <script>
-
-  Notes = "https://wineroses.github.io/app/notes.html";
-
-  e = document.createElement("style");
-  e.innerHTML = T.data.style || "";
-  document.head.appendChild(e);
-
-  s = T.data.text || "";
-  list = localStorage.shot || "";
-  block = list.split('\t');
-  if(s){
-    d = s.split(/\n\n+/);
-    if(list){
-      title = T.line(1);
-      for(i=0;i<block.length;i++) if(title===block[i].split('\n')[0]) {Array.prototype.splice.apply(block,[i,1].concat(d));break}
-      if(i>=block.length) block = block.concat(d);
-    }else{
-      block = d;
-    }
-  }else{
-    if(list==""){
-      T("load",{url:Notes});
-    }
-  }
-  localStorage.shot = block.join('\t');
+ list = localStorage.fire || "";
+  block = list.split("\n\n");
   Disp(0);
-  T.setData("carta","on");
-
-  T.closelets([
-
-  {title:"Compile",
-  fn:function(){
-    Store();
-    Check = function(x){
-      s = new RegExp("("+ query.value +")","i");
-      return s.test(x);
-    }
-    s = block.filter(Check).join("\n\n");
-    if(T.data.head){
-      s = T.data.head+s.replace(/\n{2,}/g,"\n\n"+T.data.head);
-    }else{
-      s = s.replace(/\n{3,}/g,"\n\n ");
-    }
-    T("replace",{text:s});
-  }},
-
-  {title:"Notes ",
-  fn:function(){
-    Store();
-    s = block.join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
-    T.setData("text",s);
-    T("load",{url:Notes});
-  }},
-
-  {title:"Dropbox",
-  fn:function(){
-    Store();
-    s = block.join("\n\n");
-    s = s.replace(/\n{3,}/g,"\n\n");
-    title = s.split("\n")[0];
-   T("dropbox",{text:s, filename:title+".txt", direct:true});
-  }}
-
-  ],function(){
-    url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
-    T.request({
-      url:url,
-      callback: function(x){
-        e = document.createElement("script");
-        e.innerHTML = x.responseText;
-        document.head.appendChild(e);
-        Disp(1);
-      }
-    });
-    document.body.ongesturestart = function(e){
-      Store();
-      s = block.join("\n\n");
-      s = s.replace(/\n{3,}/g,"\n\n");
-      T.setData("text",s);
-      T("load",{url:Notes});
-    }
-  });
-
-
-function NewOne(){
-  Store();
-  T("done",{option:"clearAll"});
-}
 
 function Store(){
   block = [];
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  localStorage.shot = block.join('\t');
+  localStorage.fire = block.join("\n\n");
 }
 
 function Load(x){
   s = block[x];
   Store();
-  T("replace",{text:s});
+  location="pad.html";
 }
 
 function Remove(x){
   s = "\n【"+block[x].split("\n")[0]+"】\n\nMove to Clip?";
   if(confirm(s)){
-    T.copy(block[x]);
-    addClip(block[x]);
     block.splice(x,1);
     Disp(1);
   }
   Store();
 }
 
-function addClip(x){
-  s = localStorage.clip || '';
-  clip = s.split('\t');
-  for(i=0;i<clip.length;i++){
-    if(clip[i]==x) clip.splice(i,1);
-  }
-  localStorage.clip = x +"\t"+ clip.join('\t');
-}
-
-function Reset(){
-  query.value = "";
-  Store();
-  Disp(1);
-}
-
 function Disp(x){
-        w = new RegExp("("+ query.value +")","i");
   list = "<div id=card>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    if(s) list+= "<div class='item "+((w.test(s))? "" : " hidden")+"'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    if(s) list+= "<div class='item'><div class=tag onclick=Remove("+i+")>.</div><div class=content onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   board.innerHTML = list + "</div>";
   if(x) Sortable.create(card,{delay:100,chosenClass:"chosen"});
