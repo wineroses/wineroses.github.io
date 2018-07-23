@@ -21,11 +21,17 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 </section>
 
 <script>
+url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
+x = createXMLHttpRequest();
+x.open("GET", url, true);
+x.send("");
+e = document.createElement("script");
+e.innerHTML = x.responseText;
+document.head.appendChild(e);
 
-
- list = localStorage.fire || "";
-  block = list.split("\n\n");
-  Disp();
+list = localStorage.fire || "";
+block = list.split("\n\n");
+Disp();
 
 function Store(){
   block = [];
