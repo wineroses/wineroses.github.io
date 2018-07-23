@@ -22,9 +22,9 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 
 <script>
 url = "https://raw.githubusercontent.com/wineroses/Sortable/master/Sortable.min.js";
-x = createXMLHttpRequest();
+x = new XMLHttpRequest();
 x.open("GET", url, true);
-x.send("");
+x.send();
 e = document.createElement("script");
 e.innerHTML = x.responseText;
 document.head.appendChild(e);
