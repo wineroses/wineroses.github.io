@@ -1,5 +1,6 @@
 <html><head>
 <meta name="viewport" content="initial-scale=1,user-scalable=no">
+<script src="//rubaxa.github.io/Sortable/Sortable.min.js"></script>
 
 <title>FireCard</title>
 
@@ -7,7 +8,7 @@
 body{background:whitesmoke;font-family:serif;font-size:small;}
 #card{position:absolute;white-space:pre;word-wrap:break-word;top:10px; left:10px;right:10px;}
 .item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
-.tag{color:darkred;background:orange;float:left;width:18px;padding:2px;height:5em;}
+.tag{color:orange;background:orange;float:left;width:18px;padding:2px;height:5em;}
 .content{padding:2px;padding-left:32px;height:5em;}
 .content:first-line{color:navy;font-family:Hiragino Sans;font-weight:bold;}
 .chosen{background:lightyellow;opacity:0.0;} 
@@ -19,8 +20,6 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 <section id="board">
 <div id="card"></div>
 </section>
-
-<script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
 
 <script>
 
