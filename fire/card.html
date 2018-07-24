@@ -28,6 +28,7 @@ block = list.split("\n\n");
 Disp();
 
 document.ontouchmove = function(e){
+  e.preventDefault();
   e.stopPropagation();
 }
 
