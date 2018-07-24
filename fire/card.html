@@ -11,14 +11,13 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 .tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:5em;}
 .content{padding:2px;padding-left:32px;height:5em;}
 .content:first-line{color:navy;font-family:Hiragino Sans;font-weight:bold;}
-.chosen{background:lightyellow;opacity:0.0;} 
+.chosen{background:white;opacity:0.0;} 
 .hidden{display:none;}
 </style>
 
 </head>
 <body>
 <section id="board">
-<div id="card"></div>
 </section>
 
 <script>
@@ -28,7 +27,7 @@ block = list.split("\n\n");
 Disp();
 
 document.ontouchmove = function(e){
-  e.preventDefault();
+  e.stopPropagation();
 }
 
 function Store(){
@@ -53,12 +52,12 @@ function Remove(x){
 }
 
 function Disp(){
-  list = "";
+  list = "<div id='card'>";
   for(i=0;i<block.length;i++){
     s=block[i];
     if(s) list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
-  card.innerHTML = list;
+  card.innerHTML = list + "</div>";
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
