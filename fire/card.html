@@ -6,9 +6,9 @@
 
 <style>
 body{background:whitesmoke;font-family:serif;font-size:small;}
-#card{position:absolute;white-space:pre;word-wrap:break-word;top:50px; left:10px;right:10px;}
+#card{position:absolute;white-space:pre;word-wrap:break-word;top:20px; left:10px;right:10px;}
 .item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
-.tag{color:lime;background:lime;float:left;width:18px;padding:2px;height:5em;}
+.tag{color:orange;background:orange;float:left;width:18px;padding:2px;height:5em;}
 .content{padding:2px;padding-left:32px;height:5em;}
 .content:first-line{color:navy;font-family:Hiragino Sans;font-weight:bold;}
 .chosen{background:white;opacity:0.0;} 
@@ -60,7 +60,7 @@ function Disp(){
     if(s) list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   card.innerHTML = list;
-  Sortable.create(card,{delay:120,chosenClass:"chosen",scroll:false});
+  Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
 </script>
