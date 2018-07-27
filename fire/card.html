@@ -60,7 +60,7 @@ function Disp(){
     if(s) list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   card.innerHTML = list;
-  Sortable.create(card,{delay:120,chosenClass:"chosen".scroll:false});
+  Sortable.create(card,{delay:120,chosenClass:"chosen",scroll:false});
 }
 
 </script>
