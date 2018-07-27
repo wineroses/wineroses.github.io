@@ -24,6 +24,7 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 <script>
 
 list = localStorage.fire || "";
+list = list.replace(/\n{3,}/g,"\n\n");
 block = list.split("\n\n");
 Disp();
 
