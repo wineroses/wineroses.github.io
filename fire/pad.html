@@ -48,8 +48,8 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2) View();
   if(e.touches.length==3) location="card.html";
+  if(e.touches.length==2) View();
 }
 
 document.ontouchmove = function(e){
