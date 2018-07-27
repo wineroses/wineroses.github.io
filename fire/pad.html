@@ -33,7 +33,6 @@ if(s){
 }
 
 var flag=0;
-cx = localStorage.firex || 0;
 
 text = localStorage.fire || "";
 s = location.search;
@@ -42,12 +41,9 @@ if(s){
   localStorage.fire = text;
 }
 fire.value = text;
-fire.selectionStart = cx;
-fire.blur().focus();
 
 fire.onblur=function(){
   localStorage.fire = fire.value;
-  localStorage.firex = fire.selectionStart;
 }
 
 p=0;
@@ -77,7 +73,6 @@ document.ontouchmove = function(e){
 
 function View(){
   localStorage.fire = fire.value;
-  localStorage.firex = fire.selectionStart;
   if(flag){
     document.title = "FirePad";
     fire.style.display = "block";
