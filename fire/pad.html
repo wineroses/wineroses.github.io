@@ -51,8 +51,9 @@ document.ontouchstart = function(e){
   p=e.touches[0].pageX;
   if(e.touches.length==3){
     location="card.html";
+  }else{
+    if(e.touches.length==2) View();
   }
-  if(e.touches.length==2) View();
 }
 
 document.ontouchmove = function(e){
