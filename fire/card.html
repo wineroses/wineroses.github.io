@@ -17,15 +17,13 @@ body{background:whitesmoke;font-family:serif;font-size:small;}
 
 </head>
 <body>
-
 <div id='card'></div>
-
 
 <script>
 
 list = localStorage.fire || "";
-list = list.replace(/\n{3,}/g,"\n\n");
-block = list.split("\n\n");
+// list = list.replace(/\n{3,}/g,"\n\n");
+block = list.split("\n");
 Disp();
 
 document.ontouchstart = function(e){
@@ -36,7 +34,7 @@ function Store(){
   block = [];
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  localStorage.fire = block.join("\n\n");
+  localStorage.fire = block.join("\n");
 }
 
 function Load(x){
