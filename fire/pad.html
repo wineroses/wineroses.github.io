@@ -132,11 +132,8 @@ function Store(){
 }
 
 function Remove(x){
-  s = "\n【"+block[x].split("\n")[0]+"】\n\nDiscard this?";
-  if(confirm(s)){
-    block.splice(x,1);
-   Disp();
-  }
+  block.splice(x,1);
+  Disp();
   Store();
 }
 
