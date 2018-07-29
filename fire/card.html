@@ -26,10 +26,6 @@ list = localStorage.fire || "";
 block = list.split("\n");
 Disp();
 
-document.ontouchstart = function(e){
-  e.preventDefault();
-}
-
 function Store(){
   block = [];
   p = card.getElementsByClassName('content');
