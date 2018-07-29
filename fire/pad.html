@@ -1,5 +1,5 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-
+<script src="//wineroses.github.io/js/Sortable.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <title>FirePad</title>
@@ -19,6 +19,12 @@ pre{background:#eee;padding:10px;white-space:pre-wrap;word-wrap:break-word;}
 strong{color:red;}
 em{background:yellow;}
 img{max-width:340px;}
+
+#card{position:absolute;font-size:small;white-space:pre;word-wrap:break-word;top:20px; left:10px;right:10px;}
+.item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
+.tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:4em;}
+.content{padding:2px;padding-left:32px;height:4em;}
+.chosen{background:white;opacity:0.0;} 
 </style>
 
 <textarea id=fire></textarea>
@@ -27,12 +33,13 @@ img{max-width:340px;}
 <script>
 s = localStorage.style || "";
 if(s){
-  e=document.createElement("style");
-  e.innerHTML=s;
+  e = document.createElement("style");
+  e.innerHTML = s;
   document.body.appendChild(e);
 }
 
-var flag=0;
+var flag = 0;
+var cflag = 0;
 
 text = localStorage.fire || "";
 s = location.search;
@@ -49,10 +56,12 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==3){
-    location="card.html";
-  }else{
-    if(e.touches.length==2) View();
+  if(cflag==0){
+    if(e.touches.length==3){
+      Card();
+    }else{
+      if(e.touches.length==2) View();
+    }
   }
 }
 
@@ -61,12 +70,10 @@ document.ontouchmove = function(e){
   d=document.getSelection();
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
-    e.preventDefault();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
-    e.preventDefault();
     d.modify(m,"left","character");
     p=x;
   }
@@ -89,4 +96,57 @@ function View(){
   flag = 1-flag;
 }
 
+function Card(){
+  localStorage.fire = fire.value;
+  if(cflag){
+    Store();
+    document.title = "FirePad";
+    fire.style.display = "block";
+    preview.style.display = "none";
+  }else{
+    fire.blur();
+    block = fire.value.split("\n");
+    Disp();
+    document.title = "Card";
+    fire.style.display = "none";
+    preview.style.display = "block";
+  }
+  cflag = 1-cflag;
+}
+
+function Disp(){
+  list = "<div id='card'>";
+  for(i=0;i<block.length;i++){
+    s=block[i];
+    list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Card()>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+  }
+  preview.innerHTML = list+"</div>";
+  Sortable.create(card,{delay:100,chosenClass:"chosen"});
+}
+
+function Store(){
+  block = [];
+  p = card.getElementsByClassName('content');
+  for(i=0;i<p.length;i++) block.push(p[i].innerText);
+  fire.value = block.join("\n");
+}
+
+function Remove(x){
+  s = "\n【"+block[x].split("\n")[0]+"】\n\nDiscard this?";
+  if(confirm(s)){
+    block.splice(x,1);
+   Disp();
+  }
+  Store();
+}
+
 </script>
+
+</body>
+<!--
+ Special Thanks:
+ Sortable.js
+   Copyright 2013 Lebedev Konstantin
+   https://github.com/RubaXa/Sortable
+-->
+</html>
