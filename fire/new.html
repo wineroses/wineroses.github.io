@@ -2,7 +2,7 @@
 
 s = location.search;
 if(s){
-  text+= "\n" + decodeURIComponent(s.substr(1));
+  text = decodeURIComponent(s.substr(1));
   localStorage.fire = text;
 }
 location = "pad.html";
