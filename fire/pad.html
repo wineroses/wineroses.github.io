@@ -58,10 +58,10 @@ p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
   if(cflag==0){
-    if(e.touches.length==3){
+    if(e.touches.length==2){
       Card();
     }else{
-      if(e.touches.length==2) View();
+      if(e.touches.length==3) View();
     }
   }
 }
@@ -106,7 +106,7 @@ function Card(){
     preview.style.display = "none";
   }else{
     fire.blur();
-    block = fire.value.split("\n");
+    block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
     Disp();
     document.title = "Card";
     fire.style.display = "none";
@@ -129,7 +129,7 @@ function Store(){
   block = [];
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++) block.push(p[i].innerText);
-  fire.value = block.join("\n");
+  fire.value = block.join("\n\n");
 }
 
 function Remove(x){
