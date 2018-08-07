@@ -61,7 +61,7 @@ document.ontouchstart = function(e){
     if(e.touches.length==3){
       View();
     }else{
-      if(e.touches.length==2) Card();
+      if(e.touches.length==2 && flag==0) Card();
     }
   }
 }
