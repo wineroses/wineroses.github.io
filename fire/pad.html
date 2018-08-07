@@ -58,10 +58,10 @@ p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
   if(cflag==0){
-    if(e.touches.length==2){
-      Card();
+    if(e.touches.length==3){
+      View();
     }else{
-      if(e.touches.length==3) View();
+      if(e.touches.length==2) Card();
     }
   }
 }
