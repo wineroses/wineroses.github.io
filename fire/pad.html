@@ -71,10 +71,12 @@ document.ontouchmove = function(e){
   d=document.getSelection();
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
+    e.preventDefault();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
+    e.preventDefault();
     d.modify(m,"left","character");
     p=x;
   }
@@ -105,6 +107,7 @@ function Card(){
     document.title = "FirePad";
     fire.style.display = "block";
     preview.style.display = "none";
+    fire.focus();
   }else{
     fire.blur();
     block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
