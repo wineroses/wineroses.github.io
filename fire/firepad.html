@@ -57,13 +57,6 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(cflag==0){
-    if(e.touches.length==3){
-      View();
-    }else{
-      if(e.touches.length==2 && flag==0) Card();
-    }
-  }
 }
 
 document.ontouchmove = function(e){
@@ -72,23 +65,25 @@ document.ontouchmove = function(e){
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
     e.preventDefault();
+    if(e.touches.length==2 && flag==0) Card();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
     e.preventDefault();
+    if(e.touches.length==2 && cflag==0) View();
     d.modify(m,"left","character");
     p=x;
   }
 }
 
 function View(){
-  localStorage.fire = fire.value;
   if(flag){
     document.title = "FirePad";
     fire.style.display = "block";
     preview.style.display = "none";
   }else{
+    localStorage.fire = fire.value;
     fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     preview.innerHTML = marked(fire.value);
@@ -97,49 +92,50 @@ function View(){
     preview.style.display = "block";
   }
   flag = 1-flag;
-  cflag=0;
 }
 
 function Card(){
   localStorage.fire = fire.value;
-  if(cflag){
-    Store();
-    document.title = "FirePad";
-    fire.style.display = "block";
-    preview.style.display = "none";
-    fire.focus();
-  }else{
-    fire.blur();
-    block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
-    Disp();
-    document.title = "Card";
-    fire.style.display = "none";
-    preview.style.display = "block";
-  }
-  cflag = 1-cflag;
+  fire.blur();
+  block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
+  Disp();
+  document.title = "Card";
+  fire.style.display = "none";
+  preview.style.display = "block";
+  cflag = 1;
 }
 
 function Disp(){
   list = "<div id='card'>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Card()>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   preview.innerHTML = list+"</div>";
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-function Store(){
+function Store(x){
   block = [];
+  n = 0;
   p = card.getElementsByClassName('content');
-  for(i=0;i<p.length;i++) block.push(p[i].innerText);
+  for(i=0;i<p.length;i++){
+    s = p[i].innerText;
+    block.push(s);
+    if(p[i].id==("id"+x)) exit;
+    n+= s.length + 2;
+  }
   fire.value = block.join("\n\n");
+  fire.selectStart = n;
+  document.title = "FirePad";
+  fire.style.display = "block";
+  preview.style.display = "none";
+  fire.focus();
 }
 
 function Remove(x){
   block.splice(x,1);
   Disp();
-  Store();
 }
 
 </script>
