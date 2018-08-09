@@ -57,8 +57,7 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2 && flag==0) Card();
-  if(e.touches.length==3 && cflag==0) View();
+  if(e.touches.length==2 && cflag==0 && flag) View();
 }
 
 document.ontouchmove = function(e){
@@ -67,11 +66,13 @@ document.ontouchmove = function(e){
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
     e.preventDefault();
+    if(e.touches.length==2 && cflag==0 && flag==0) Card();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
     e.preventDefault();
+    if(e.touches.length==2 && cflag==0 && flag==0) View();
     d.modify(m,"left","character");
     p=x;
   }
@@ -118,11 +119,12 @@ function Disp(){
 function Store(x){
   block = [];
   n = nx = 0;
+  t = "id"+x;
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++){
     s = p[i].innerText;
     block.push(s);
-    if(p[i].id==("id"+x)) nx=n;
+    if(p[i].id==t) nx=n;
     n+= s.length + 2;
   }
   fire.value = block.join("\n\n");
