@@ -52,13 +52,13 @@ fire.value = text;
 
 fire.onblur=function(){
   localStorage.fire = fire.value;
-  if(cflag==0) View();
 }
 
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
   if(e.touches.length==2 && flag==0) Card();
+  if(e.touches.length==3 && cflag==0) View();
 }
 
 document.ontouchmove = function(e){
