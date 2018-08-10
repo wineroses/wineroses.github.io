@@ -60,7 +60,13 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2 && cflag==0 && flag) View();
+  if(cflag==0){
+    if(e.touches.length==3){
+      View();
+    }else{
+      if(e.touches.length==2 && flag==0) Card();
+    }
+  }
 }
 
 document.ontouchmove = function(e){
@@ -68,12 +74,10 @@ document.ontouchmove = function(e){
   d=document.getSelection();
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
-    if(e.touches.length==2 && cflag==0 && flag==0) Card();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
-    if(e.touches.length==2 && cflag==0 && flag==0) View();
     d.modify(m,"left","character");
     p=x;
   }
