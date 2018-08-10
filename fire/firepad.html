@@ -100,6 +100,7 @@ function Card(){
   localStorage.fire = fire.value;
   fire.blur();
   block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
+  preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
   Disp();
   document.title = "Card";
   fire.style.display = "none";
@@ -113,12 +114,12 @@ function Reset(){
 }
 
 function Disp(){
-  list = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'>";
+  list = "";
   for(i=0;i<block.length;i++){
     s=block[i];
     list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
-  preview.innerHTML = list+"</div>";
+  card.innerHTML = list;
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
