@@ -69,11 +69,13 @@ document.ontouchmove = function(e){
   m=(d.toString().length)? "extend":"move";
   if(x-p>8){
     if(e.touches.length==2 && cflag+flag==0) Card();
+    e.preventDefault();
     d.modify(m,"right","character");
     p=x;
   }
   if(p-x>8){
     if(e.touches.length==2 && cflag+flag==0) View();
+    e.preventDefault();
     d.modify(m,"left","character");
     p=x;
   }
