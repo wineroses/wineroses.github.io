@@ -113,7 +113,7 @@ function Reset(){
 }
 
 function Disp(){
-  list = "<div id='card'>";
+  list = "<input id=query onkeyup=Disp() placeholder='seek...' ><span id=peke onclick=Reset()>×</span> <div id='card'>";
   for(i=0;i<block.length;i++){
     s=block[i];
     list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
