@@ -88,9 +88,9 @@ function View(){
     preview.style.display = "none";
   }else{
     localStorage.fire = fire.value;
-    fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     preview.innerHTML = marked(fire.value);
+    fire.blur();
     document.title = "Preview";
     fire.style.display = "none";
     preview.style.display = "block";
