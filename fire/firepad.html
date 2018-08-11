@@ -100,10 +100,10 @@ function View(){
 
 function Card(){
   localStorage.fire = fire.value;
-  fire.blur();
   block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
   preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
   Disp();
+  fire.blur();
   document.title = "Card";
   fire.style.display = "none";
   preview.style.display = "block";
