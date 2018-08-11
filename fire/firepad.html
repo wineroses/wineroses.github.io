@@ -60,7 +60,13 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2) alert(document.activeElement.id);
+  if(e.touches.length==2){
+    if(document.activeElement.id=="fire"){
+      Card();
+    }else{
+      if(cflag==0) View();
+    }
+  }
 }
 
 document.ontouchmove = function(e){
