@@ -91,7 +91,7 @@ function View(){
     fire.style.display = "block";
     preview.style.display = "none";
   }else{
-    localStorage.fire = fire.value;
+    if(cflag) ReBlock(0);
     marked.setOptions({breaks:true, langPrefix:""});
     preview.innerHTML = marked(fire.value);
     fire.blur();
@@ -103,7 +103,6 @@ function View(){
 }
 
 function Card(){
-  localStorage.fire = fire.value;
   block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
   preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
   Disp();
@@ -130,7 +129,7 @@ function Disp(){
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-function Store(x){
+function ReBlock(x){
   block = [];
   n = nx = 0;
   t = "id"+x;
@@ -145,6 +144,10 @@ function Store(x){
   fire.value = block.join("\n\n");
   fire.selectionStart = nx;
   fire.selectionEnd = nx;
+}
+
+function Store(x){
+  ReBlock(x);
   document.title = "FirePad";
   fire.style.display = "block";
   preview.style.display = "none";
