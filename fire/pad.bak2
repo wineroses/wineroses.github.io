@@ -20,15 +20,12 @@ strong{color:red;}
 em{background:yellow;}
 img{max-width:340px;}
 
-#card{position:absolute;font-size:small;white-space:pre-wrap;word-wrap:break-word;top:50px;left:10px;right:10px;}
-#query{position:fixed;background:white;font-size:medium;width:98%;top:8px;left:8px;right:8px;z-index:99;border:1px solid whitesmoke;} 
-#peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:10px;width:30px;height:30px;z-index:99;}
+#card{position:absolute;font-size:small;white-space:pre-wrap;word-wrap:break-word;top:20px;left:10px;right:10px;}
 .item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
 .tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:5em;}
 .content{padding:2px;padding-left:32px;height:5em;}
 .chosen{background:white;opacity:0.0;}
 .content:first-line{color:navy;font-family:sans-serif;font-weight:bold;}
-.hidden{display:none;}
 </style>
 
 <textarea id=fire></textarea>
@@ -60,11 +57,11 @@ fire.onblur=function(){
 p=0;
 document.ontouchstart = function(e){
   p=e.touches[0].pageX;
-  if(e.touches.length==2){
-    if(document.activeElement.id=="fire"){
-      Card();
-    }else{
+  if(cflag==0){
+    if(e.touches.length==3){
       View();
+    }else{
+      if(e.touches.length==2 && flag==0) Card();
     }
   }
 }
@@ -86,77 +83,63 @@ document.ontouchmove = function(e){
 }
 
 function View(){
+  localStorage.fire = fire.value;
   if(flag){
     document.title = "FirePad";
     fire.style.display = "block";
     preview.style.display = "none";
   }else{
-    if(cflag) ReBlock(0);
+    fire.blur();
     marked.setOptions({breaks:true, langPrefix:""});
     preview.innerHTML = marked(fire.value);
-    fire.blur();
     document.title = "Preview";
     fire.style.display = "none";
     preview.style.display = "block";
   }
   flag = 1-flag;
+  cflag=0;
 }
 
 function Card(){
-  block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
-  preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
-  Disp();
-  fire.blur();
-  document.title = "Card";
-  fire.style.display = "none";
-  preview.style.display = "block";
-  cflag = 1;
-}
-
-function Reset(){
-  query.value = "";
-  Disp();
+  localStorage.fire = fire.value;
+  if(cflag){
+    Store();
+    document.title = "FirePad";
+    fire.style.display = "block";
+    preview.style.display = "none";
+    fire.focus();
+  }else{
+    fire.blur();
+    block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
+    Disp();
+    document.title = "Card";
+    fire.style.display = "none";
+    preview.style.display = "block";
+  }
+  cflag = 1-cflag;
 }
 
 function Disp(){
-  w = new RegExp("("+ query.value +")","i");
-  list = "";
+  list = "<div id='card'>";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    list+= "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' onclick=Card()>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
-  card.innerHTML = list;
+  preview.innerHTML = list+"</div>";
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-function ReBlock(x){
+function Store(){
   block = [];
-  n = nx = 0;
-  t = "id"+x;
   p = card.getElementsByClassName('content');
-  for(i=0;i<p.length;i++){
-    s = p[i].innerText;
-    block.push(s);
-    if(p[i].id==t) nx=n;
-    n+= s.length + 2;
-  }
-  cflag = 0;
+  for(i=0;i<p.length;i++) block.push(p[i].innerText);
   fire.value = block.join("\n\n");
-  fire.selectionStart = nx;
-  fire.selectionEnd = nx;
-}
-
-function Store(x){
-  ReBlock(x);
-  document.title = "FirePad";
-  fire.style.display = "block";
-  preview.style.display = "none";
-  fire.focus();
 }
 
 function Remove(x){
   block.splice(x,1);
   Disp();
+  Store();
 }
 
 </script>
