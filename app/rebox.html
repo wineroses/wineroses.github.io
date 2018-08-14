@@ -22,7 +22,7 @@ body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin
 window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
-  s = T.text;
+  s = T.data.text || "";
   pos = 0;
   len = s.length;
   block = s.replace(/\n{3,}/g,"\n\n").split("\n\n");
