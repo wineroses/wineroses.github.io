@@ -16,7 +16,8 @@ body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin
 .hidden{display:none;}
 </style>
 
-<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>
+<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span>
+<div id='card'></div>
 
 <script>
 window.webkit.messageHandlers.initT.postMessage("main");
@@ -47,7 +48,7 @@ function Disp(){
 
 function ReBlock(x){
   block = [];
-  n = pos = 0;
+  n = 0;
   t = "id"+x;
   p = card.getElementsByClassName('content');
   for(i=0;i<p.length;i++){
