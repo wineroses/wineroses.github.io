@@ -36,13 +36,12 @@ function Reset(){
 }
 
 function Disp(){
- 
+  w = new RegExp("("+ query.value +")","i");
   list = "";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+ = "<div class='item'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+ "</div></div>";
+    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
-alert(list);
   card.innerHTML = list;
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
