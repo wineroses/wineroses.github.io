@@ -42,7 +42,7 @@ function Disp(){
     s=block[i];
     list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
-  card.innerHTML = list;
+  card.innerHTML = block.join("\n\n");
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
