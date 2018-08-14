@@ -6,7 +6,7 @@
 body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin:0;}
 
 #card{position:absolute;font-size:small;white-space:pre-wrap;word-wrap:break-word;top:50px;left:10px;right:10px;}
-#query{position:fixed;background:white;font-size:medium;top:8px;left:8px;right:8px;z-index:99;border:1px solid red;} 
+#query{position:fixed;background:white;font-size:medium;top:8px;left:8px;right:8px;z-index:99;border:1px solid yellow;} 
 #peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:10px;width:30px;height:30px;z-index:99;}
 .item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
 .tag{color:orange;background:orange;float:left;width:18px;padding:2px;height:5em;}
@@ -15,11 +15,13 @@ body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin
 .content:first-line{color:navy;font-family:sans-serif;font-weight:bold;}
 .hidden{display:none;}
 </style>
+
 <body>
 <input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span>
 <div id='card'></div>
 
 <script>
+
 window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
@@ -28,6 +30,7 @@ function main(){
   len = s.length;
   block = s.replace(/\n{3,}/g,"\n\n").split("\n\n");
   Disp();
+alert(s);
 }
 
 function Reset(){
