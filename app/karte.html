@@ -1,7 +1,7 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <script src="https://wineroses.github.io/js/Sortable.min.js"></script>
 
-<title>Plot</title>
+<title>Karte</title>
 <style>
 body{font-size:medium;font-family:serif;color;black;background:burlywood;margin:0;}
 
@@ -26,7 +26,7 @@ window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
   e = document.createElement("style");
-  e.innerHTML = T.data.PlotStyle || "";
+  e.innerHTML = T.data.Style || "";
   document.head.appendChild(e);
 
   s = T.text;
