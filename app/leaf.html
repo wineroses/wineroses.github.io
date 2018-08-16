@@ -46,27 +46,23 @@ function Disp(){
   list = "";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div class='content' id='id"+i+"' onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   card.innerHTML = list;
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-function ReBlock(x){
+function Load(x){
   block = [];
   n = 0;
-  t = "id"+x;
-  p = card.getElementsByClassName('content');
+  idx = "id"+x;
+  p = card.getElementsByClassName("content");
   for(i=0;i<p.length;i++){
     s = p[i].innerText;
     block.push(s);
-    if(p[i].id==t) pos=n;
+    if(p[i].id==idx) pos=n;
     n+= s.length + 2;
   }
-}
-
-function Store(x){
-  ReBlock(x);
   s = block.join("\n\n");
   T("replaceRange",{
     text:s,
