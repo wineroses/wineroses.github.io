@@ -26,7 +26,7 @@ window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
   e = document.createElement("style");
-  e.innerHTML = T.data.Style || "";
+  e.innerHTML = T.data.style || "";
   document.head.appendChild(e);
 
   s = T.text;
