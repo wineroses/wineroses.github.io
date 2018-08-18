@@ -34,6 +34,15 @@ function main(){
   len = s.length;
   block = s.replace(/\n{3,}/g,"\n\n").split("\n\n");
   Disp();
+
+  T.closelets([
+  {title:"Save ",
+  fn:function(){
+    s = Merge(0);
+    T("replace",{text:s});
+  }}
+  ]);
+
 }
 
 function Reset(){
@@ -52,7 +61,7 @@ function Disp(){
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
 }
 
-function Load(x){
+function Merge(x){
   block = [];
   n = 0;
   idx = "id"+x;
@@ -63,7 +72,11 @@ function Load(x){
     if(p[i].id==idx) pos=n;
     n+= s.length + 2;
   }
-  s = block.join("\n\n");
+  return block.join("\n\n");
+}
+
+function Load(x){
+  s = Merge(x);
   T("replaceRange",{
     text:s,
     replacingRange:{len:len},
