@@ -30,9 +30,10 @@ function main(){
   document.head.appendChild(e);
 
   s = T.text;
+  cr = (T.current)? "\n":"\n\n";
   pos = 0;
   len = s.length;
-  block = s.replace(/\n{3,}/g,"\n\n").split("\n\n");
+  block = s.replace(/\n{3,}/g,"\n\n").split(cr);
   Disp();
 
   T.closelets([
@@ -71,9 +72,9 @@ function Merge(x){
     s = p[i].innerText;
     block.push(s);
     if(p[i].id==idx) pos=n;
-    n+= s.length + 2;
+    n+= s.length + cr.length;
   }
-  return block.join("\n\n");
+  return block.join(cr);
 }
 
 function Load(x){
