@@ -30,11 +30,20 @@ function main(){
   document.head.appendChild(e);
 
   s = T.text;
-  cr = (T.current)? "\n":"\n\n";
+  cr = "\n\n";
   pos = 0;
   len = s.length;
   block = s.replace(/\n{3,}/g,"\n\n").split(cr);
   Disp();
+
+  document.ontouchstart = function(e){
+    if(e.touches.length==2){
+      s = Merge(0);
+      cr = (cr=="\n")? "\n\n":"\n";
+      block = s.split(cr);
+      Disp();
+    }
+  }
 
   T.closelets([
   {title:"Save ",
