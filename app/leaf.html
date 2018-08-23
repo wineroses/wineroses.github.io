@@ -99,12 +99,14 @@ function Load(x){
 }
 
 function addClip(x){
-  s = localStorage.clip || '';
-  clip = s.split('\t');
-  for(i=0;i<clip.length;i++){
-    if(clip[i]==x) clip.splice(i,1);
+  if(x){
+    s = localStorage.clip || '';
+    clip = s.split('\t');
+    for(i=0;i<clip.length;i++){
+      if(clip[i]==x) clip.splice(i,1);
+    }
+    localStorage.clip = x +"\t"+ clip.join('\t');
   }
-  localStorage.clip = x +"\t"+ clip.join('\t');
 }
 
 function Remove(x){
