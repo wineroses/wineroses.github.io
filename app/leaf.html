@@ -100,6 +100,7 @@ function Load(x){
 
 function addClip(x){
   if(x){
+    T.copy(x);
     s = localStorage.clip || '';
     clip = s.split('\t');
     for(i=0;i<clip.length;i++){
