@@ -32,17 +32,13 @@ function main(){
   s = T.text;
   cr = "\n\n";
   pos = 0;
+  tap = 1;
   len = s.length;
   block = s.replace(/\n{3,}/g,"\n\n").split(cr);
   Disp();
 
   document.ontouchstart = function(e){
-    if(e.touches.length==2){
-      s = Merge(0);
-      cr = (cr=="\n")? "\n\n":"\n";
-      block = s.split(cr);
-      Disp();
-    }
+    tap = e.touches.length;
   }
 
   T.closelets([
@@ -87,12 +83,19 @@ function Merge(x){
 }
 
 function Load(x){
+  if(tap==1){
   s = Merge(x);
   T("replaceRange",{
     text:s,
     replacingRange:{len:len},
     selectingRange:{loc:pos}
   });
+  }else{
+    s = Merge(0);
+    cr = (cr=="\n")? "\n\n":"\n";
+    block = s.split(cr);
+    Disp();
+  }
 }
 
 function addClip(x){
