@@ -31,22 +31,22 @@ function main(){
 
   s = T.text;
   cr = "\n\n";
-  pos = 0;
-  tap = 1;
   len = s.length;
+  pos = 0;
+  tap = 0;
   block = s.replace(/\n{3,}/g,"\n\n").split(cr);
   Disp();
 
-  document.ontouchstart = function(e){
+  card.ontouchstart = function(e){
     tap = e.touches.length;
   }
 
   T.closelets([
-  {title:"Save ",
-  fn:function(){
-    s = Merge(0);
-    T("replace",{text:s});
-  }}
+    {title:"Save ",
+    fn:function(){
+      s = Merge(0);
+      T("replace",{text:s});
+    }}
   ]);
 
 }
@@ -84,12 +84,12 @@ function Merge(x){
 
 function Load(x){
   if(tap==1){
-  s = Merge(x);
-  T("replaceRange",{
-    text:s,
-    replacingRange:{len:len},
-    selectingRange:{loc:pos}
-  });
+    s = Merge(x);
+    T("replaceRange",{
+      text:s,
+      replacingRange:{len:len},
+      selectingRange:{loc:pos}
+    });
   }else{
     s = Merge(0);
     cr = (cr=="\n")? "\n\n":"\n";
