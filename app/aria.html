@@ -32,6 +32,7 @@ function main(){
   document.head.appendChild(e);
 
   s = T.text;
+  if(s=="") T("load",{url:Notes});
   cr = "\n\n";
   len = s.length;
   pos = 0;
