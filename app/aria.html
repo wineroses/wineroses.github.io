@@ -62,7 +62,7 @@ function Disp(){
   list = "";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div class='content' id='id"+i+"' onclick=Load("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div onclick=Load("+i+")><div class='content' id='id"+i+"'>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div></div>";
   }
   card.innerHTML = list;
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
