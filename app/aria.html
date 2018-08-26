@@ -25,6 +25,8 @@ body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin
 window.webkit.messageHandlers.initT.postMessage("main");
 
 function main(){
+  Notes = "https://wineroses.github.io/app/notes.html";
+
   e = document.createElement("style");
   e.innerHTML = T.data.style || "";
   document.head.appendChild(e);
@@ -46,6 +48,12 @@ function main(){
     fn:function(){
       s = Merge(0);
       T("replace",{text:s});
+    }},
+    {title:"Notes ",
+    fn:function(){
+      s = Merge(0);
+      T.setData("text",s);
+      T("load",{url:Notes});
     }}
   ]);
 
