@@ -8,10 +8,9 @@ body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin
 #card{position:absolute;font-size:small;white-space:pre-wrap; word-wrap:break-word; top:50px;left:10px;right:10px;}
 #query{position:fixed;background:white;font-size:medium;top:8px;left:8px;right:8px;z-index:99;border:0px solid gray;} 
 #peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:8px;width:30px;height:30px;z-index:99;}
-.item{display:grid;color:black;background:white;margin-bottom:5px;border-radius:3px;border:1px lightgray solid;width:100%;overflow:hidden;max-height:5em;}
-.tag{color:gold;background:gold;text-align:center;width:16px; padding:2px;}
-.container{display:block;}
-.content{padding:2px;padding-left:12px; width:auto;}
+.item{display:grid; grid-template-columns: 16px 1fr; color:black;background:white;margin-bottom:5px;border-radius:3px;border:1px lightgray solid;width:100%;overflow:hidden;max-height:5em;}
+.tag{color:gold;background:gold;text-align:center;padding:2px;}
+.content{padding:2px;padding-left:12px;}
 .chosen{background:white;opacity:0.0;}
 .content:first-line{color:navy;font-family:sans-serif;font-weight:bold;}
 .hidden{display:none;}
@@ -72,7 +71,7 @@ function Disp(){
   list = "";
   for(i=0;i<block.length;i++){
     s=block[i];
-    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div class='container' onclick=Load("+i+")><div class='content' id='id"+i+"'>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div></div>";
+    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div onclick=Load("+i+") class='content' id='id"+i+"'>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   card.innerHTML = list;
   Sortable.create(card,{delay:100,chosenClass:"chosen"});
