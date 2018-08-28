@@ -75,7 +75,7 @@ function Disp(){
     list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>•</div><div onclick=Load("+i+") class='content' id='id"+i+"'>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
   }
   card.innerHTML = list;
-  Sortable.create(card,{delay:100,chosenClass:"chosen"});
+  Sortable.create(card,{delay:100,chosenClass:"chosen",ghostClass:"ghost"});
 }
 
 function Merge(x){
