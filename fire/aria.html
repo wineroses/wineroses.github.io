@@ -13,8 +13,8 @@
   background: white;
   caret-color: red;
   caret-shape: block;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
   padding-bottom: 60vh;
   white-space: pre-wrap;
   word-break: break-all;
@@ -85,7 +85,7 @@ fire.ontouchmove = function(e){
 
 function Card(){
   block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
-  preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
+  preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span><br> <div id='card'></div>";
   Disp();
   fire.style.display = "none";
   preview.style.display = "block";
