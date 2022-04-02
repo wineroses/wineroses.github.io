@@ -1,0 +1,172 @@
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name=apple-mobile-web-app-capable content=yes>
+<script src="//wineroses.github.io/js/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<title>Fire</title>
+<style>
+body{font-size:medium;font-family:serif;color;black;background:whitesmoke;margin:0;}
+#fire{font-size:20px;background:none;width:100%;height:100%;padding:8px;border:0;white-space:pre-wrap;}
+
+#preview{padding:8px;}
+h1,h2,h3,h4,h5,h6{color:darkblue;font-family:sans-serif;margin:0;border-bottom:1px #eee solid;}
+hr{border:1px #eee solid;}
+ul,ol{font-family:serif;}
+blockquote{margin:0;font-family:sans-serif;background:ivory;}
+table{border-left:1px silver solid;border-top:1px silver solid;border-spacing:0;}
+th{background:beige;border-right:1px silver solid;border-bottom:1px silver solid;}
+td{border-right:1px silver solid;border-bottom:1px silver solid;}
+pre{background:#eee;padding:10px;white-space:pre-wrap;word-wrap:break-word;}
+strong{color:red;}
+em{background:yellow;}
+img{max-width:340px;}
+
+#card{position:absolute;font-size:small;white-space:pre-wrap;word-wrap:break-word;top:50px;left:10px;right:10px;}
+#query{position:fixed;background:white;font-size:medium;width:98%;top:8px;left:8px;right:8px;z-index:99;border:1px solid whitesmoke;} 
+#peke{position:fixed;text-align:center;color:silver;font-size:x-large;right:14px;top:10px;width:30px;height:30px;z-index:99;}
+.item{color:black;background:white;overflow:hidden;margin-bottom:5px;border-radius:3px;}
+.tag{color:darkred;background:darkred;float:left;width:18px;padding:2px;height:5em;}
+.content{padding:2px;padding-left:32px;height:5em;}
+.chosen{background:white;opacity:0.0;}
+.content:first-line{color:navy;font-family:sans-serif;font-weight:bold;}
+.hidden{display:none;}
+</style>
+
+<textarea id=fire></textarea>
+<div id=preview style='display:hidden;'></div>
+
+<script>
+s = localStorage.style || "";
+if(s){
+  e = document.createElement("style");
+  e.innerHTML = s;
+  document.body.appendChild(e);
+}
+
+var flag = 0;
+var cflag = 0;
+
+text = localStorage.fire || "";
+s = location.search;
+if(s){
+  text+= "\n" + decodeURIComponent(s.substr(1));
+  localStorage.fire = text;
+}
+fire.value = text;
+
+fire.onblur=function(){
+  localStorage.fire = fire.value;
+}
+
+p=0;
+document.ontouchstart = function(e){
+  p=e.touches[0].pageX;
+  if(e.touches.length==2){
+    if(document.activeElement.id=="fire"){
+      Card();
+    }else{
+      View();
+    }
+  }
+}
+
+document.ontouchmove = function(e){
+  x=e.touches[0].pageX;
+  d=document.getSelection();
+  m=(d.toString().length)? "extend":"move";
+  if(x-p>8){
+    e.preventDefault();
+    d.modify(m,"right","character");
+    p=x;
+  }
+  if(p-x>8){
+    e.preventDefault();
+    d.modify(m,"left","character");
+    p=x;
+  }
+}
+
+function View(){
+  if(flag){
+    document.title = "FirePad";
+    fire.style.display = "block";
+    preview.style.display = "none";
+  }else{
+    if(cflag) ReBlock(0);
+    marked.setOptions({breaks:true, langPrefix:""});
+    preview.innerHTML = marked(fire.value);
+    fire.blur();
+    document.title = "Preview";
+    fire.style.display = "none";
+    preview.style.display = "block";
+  }
+  flag = 1-flag;
+}
+
+function Card(){
+  block = fire.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
+  preview.innerHTML = "<input id=query onkeyup=Disp() placeholder='...' ><span id=peke onclick=Reset()>×</span> <div id='card'></div>";
+  Disp();
+  fire.blur();
+  document.title = "Card";
+  fire.style.display = "none";
+  preview.style.display = "block";
+  cflag = 1;
+}
+
+function Reset(){
+  query.value = "";
+  Disp();
+}
+
+function Disp(){
+  w = new RegExp("("+ query.value +")","i");
+  list = "";
+  for(i=0;i<block.length;i++){
+    s=block[i];
+    list+= "<div class='item" +((w.test(s))? "" : " hidden")+ "'><div class='tag' onclick=Remove("+i+")>.</div><div class='content' id='id"+i+"' onclick=Store("+i+")>"+s.replace(/&/g,"&amp;").replace(/</g,"&#60;")+"</div></div>";
+  }
+  card.innerHTML = list;
+  Sortable.create(card,{delay:100,chosenClass:"chosen"});
+}
+
+function ReBlock(x){
+  block = [];
+  n = nx = 0;
+  t = "id"+x;
+  p = card.getElementsByClassName('content');
+  for(i=0;i<p.length;i++){
+    s = p[i].innerText;
+    block.push(s);
+    if(p[i].id==t) nx=n;
+    n+= s.length + 2;
+  }
+  cflag = 0;
+  fire.value = block.join("\n\n");
+  fire.selectionStart = nx;
+  fire.selectionEnd = nx;
+}
+
+function Store(x){
+  ReBlock(x);
+  document.title = "FirePad";
+  fire.style.display = "block";
+  preview.style.display = "none";
+  fire.focus();
+}
+
+function Remove(x){
+  block.splice(x,1);
+  Disp();
+}
+
+</script>
+
+</body>
+<!--
+ Special Thanks:
+ Sortable.js
+   Copyright 2013 Lebedev Konstantin
+   https://github.com/RubaXa/Sortable
+-->
+</html>
