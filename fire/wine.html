@@ -131,7 +131,7 @@ function ReBlock(x){
   block = [];
   n = nx = 0;
   t = "id"+x;
-  p = card.getElementsByClassName('content');
+  p = card.querySelectorAll('.content');
   for(i=0;i<p.length;i++){
     s = p[i].innerText;
     block.push(s);
