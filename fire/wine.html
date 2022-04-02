@@ -71,7 +71,6 @@ body{
 
 <script>
 
-var 
 var speed = 4;
 text = localStorage.wine || "";
 s = location.search;
@@ -108,7 +107,6 @@ function Card(){
   Disp();
   wine.style.display = "none";
   preview.style.display = "block";
-  cflag = 1;
 }
 
 function Reset(){
@@ -138,7 +136,6 @@ function ReBlock(x){
     if(p[i].id==t) nx=n;
     n+= s.length + 2;
   }
-  cflag = 0;
   wine.value = block.join("\n\n");
   wine.selectionStart = nx;
   wine.selectionEnd = nx;
