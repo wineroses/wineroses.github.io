@@ -91,11 +91,11 @@ wine.onblur = function(){
   Card();
 }
 
-document.ontouchstart = function(e){
+wine.ontouchstart = function(e){
   p=e.touches[0].pageX;
 }
 
-document.ontouchmove = function(e){
+wine.ontouchmove = function(e){
   x = e.touches[0].pageX;
   if(x-p>speed || p-x>speed){
     e.preventDefault();
@@ -108,8 +108,7 @@ document.ontouchmove = function(e){
 
 function Card(){
   block = wine.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
-  preview.innerHTML = "<input id='query' placeholder='...' ><span id='peke'>×</span>
-<div id='card'></div>";
+  preview.innerHTML = "<input id='query' placeholder='...' ><span id='peke'>×</span>\n<div id='card'></div>";
   Disp();
   wine.style.display = "none";
   preview.style.display = "block";
