@@ -30,7 +30,7 @@
 }
 
 body{
-  background: white;
+  background: whitesmoke;
   margin: 0px;
 }
 
@@ -91,11 +91,11 @@ wine.onblur = function(){
   Card();
 }
 
-wine.ontouchstart = function(e){
+document.ontouchstart = function(e){
   p=e.touches[0].pageX;
 }
 
-wine.ontouchmove = function(e){
+document.ontouchmove = function(e){
   x = e.touches[0].pageX;
   if(x-p>speed || p-x>speed){
     e.preventDefault();
