@@ -108,10 +108,10 @@ wine.onblur = function(){
   
 box.onclick = function(){
   localStorage.wine = wine.value;
-  shareData = {
-    text: wine.value;
+  const shareData = {
+    text: wine.value
   }
-  navigator.share(shareData);
+  await navigator.share(shareData);
 }
 
 wine.ontouchstart = function(e){
