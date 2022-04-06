@@ -8,5 +8,17 @@
 // @grant        none
 // ==/UserScript==
 
-css = ".is-compactDensity.is-article-view .Node-self, .is-cozyDensity.is-article-view .Node-self, .is-comfortableDensity.is-article-view .Node-self{padding-top:0px;padding-bottom:3px;}";
-GM_addStyle(css);
+document.body.appendChild(document.createElement("style")).innerHTML=".Node-self{padding-top:0px !important;padding-bottom:3px !important;}";
+p=0;
+document.ontouchstart=function(e){p=e.touches[0].pageX;};
+document.ontouchmove = function(e){
+  x = e.touches[0].pageX;
+  if(x-p>4 || p-x>4){
+    e.preventDefault();
+    d = document.getSelection();
+    m = (e.touches.length==2 || d.toString().length)? "extend":"move";
+    d.modify(m,(p>x)? "left":"right","character");
+    p = x;
+  }
+}
+
