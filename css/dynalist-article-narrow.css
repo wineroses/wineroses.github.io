@@ -1,4 +1,4 @@
-@document url("https://dynalist.io/d/*"){
+@document url-prefix("https://dynalist.io/d/"){
 .is-compactDensity.is-article-view .Node-self, .is-cozyDensity.is-article-view .Node-self, .is-comfortableDensity.is-article-view .Node-self {
   padding-top: 0px;
   padding-bottom: 0px;
