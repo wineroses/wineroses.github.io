@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Articlmode for Dynalist
-// @namespace    https://wineroses.github.io/css/
+// @name         Articlemode for Dynalist
+// @namespace    https://wineroses.github.io/
 // @version      1
 // @description  Dynalistのアーティクルビューの行間を狭める
 // @author       wineroses
@@ -8,7 +8,5 @@
 // @grant        none
 // ==/UserScript==
 
-Css = document.createElement('style');
-Css.innerText = ".is-compactDensity.is-article-view .Node-self, .is-cozyDensity.is-article-view .Node-self,
- .is-comfortableDensity.is-article-view .Node-self{padding-top:0px;padding-bottom:3px;}";
-document.head.appendChild(Css);
+css = ".is-compactDensity.is-article-view .Node-self, .is-cozyDensity.is-article-view .Node-self, .is-comfortableDensity.is-article-view .Node-self{padding-top:0px;padding-bottom:3px;}";
+GM_addStyle(css);
