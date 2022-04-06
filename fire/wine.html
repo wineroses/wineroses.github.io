@@ -121,6 +121,11 @@ wine.ontouchmove = function(e){
   }
 }
 
+box.onclick = function(){
+  wine.selectionStart = 0;
+  wine.selectionEnd = wine.value.length;
+}
+  
 function Card(){
   block = wine.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
   preview.innerHTML = "<input id='query' placeholder='...' ><span id='peke'>×</span><br><div id='card'></div>";
