@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Articlmode for Dynalist
-// @namespace    http://tampermonkey.net/
+// @namespace    https://wineroses.github.io/css/
 // @version      1
 // @description  Dynalistのアーティクルビューの行間を狭める
 // @author       wineroses
