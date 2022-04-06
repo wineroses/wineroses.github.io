@@ -1,12 +1,16 @@
-@document url("https://dynalist.io/") {
+@document url("https://dynalist.io/"){
 .is-compactDensity.is-article-view .Node-self, .is-cozyDensity.is-article-view .Node-self, .is-comfortableDensity.is-article-view .Node-self {
-padding-top: 0px;
-padding-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .DocumentTools-overlay:not(:hover){
-opacity:0;
+  opacity:0;
 }
 .DocumentTools-icon:not(:hover){
-opacity:0;
+  opacity:0;
+}
+.DocumentContainer, .AppContainer.is-borderShowing.is-globalSearch .DocumentContainer {
+  background: whitesmoke ;
+  background-image: none;
 }
 }
