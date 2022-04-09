@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Dynalist to Textwell
 // @version      1
-// @description  DynalistをTextwell に出力
+// @description  DynalistをTextwellに出力
 // @author       wineroses
 // @namespace    https://wineroses.hatenablog.com/
 // @match        https://dynalist.io/d/*
