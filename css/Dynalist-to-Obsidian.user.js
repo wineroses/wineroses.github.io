@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Dynalist to Obsidian
 // @version      1
-// @description  DynalistをObsidian に出力
+// @description  DynalistをObsidianに出力
 // @author       wineroses
 // @namespace    https://wineroses.hatenablog.com/
 // @match        https://dynalist.io/d/*
