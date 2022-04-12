@@ -8,13 +8,12 @@
 // ==/UserScript==
 
 e = document.createElement("div");
-e.id = "toTextwell";
-e.innerHTML = " [T] ";
-e.style.cssText = "display:block; padding:8px; color:whitesmoke;";
-p = document.querySelector(".node-toolbar-options-container");
-p.appendChild(e);
+e.id = "Textwell";
+e.innerHTML = "■";
+e.style.cssText = "position:fixed; top:68px; right:20px; color:darkred;";
+document.body.appendChild(e);
 
-toTextwell.onclick = function(){
+Textwell.onclick = function(){
   p = document.querySelectorAll(".Node .is-parent,.is-currentRoot .Node-content");
   s = "";
   for(i=0; i<p.length; i++){
