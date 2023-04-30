@@ -73,7 +73,9 @@ body{
 
 </style>
 <textarea id=wine placeholder='Cardy is not an editor.'></textarea>
-<div id=preview style='display:hidden;'></div>
+<div id=preview style='display:hidden;'>
+  <input id='query' placeholder='...' ><span id='peke'>×</span><br><div id='card'></div>
+</div>
 
 <script>
 
@@ -110,7 +112,6 @@ wine.ontouchmove = function(e){
   
 function Card(){
   block = wine.value.replace(/\n{3,}/g,"\n\n").split("\n\n");
-  preview.innerHTML = "<input id='query' placeholder='...' ><span id='peke'>×</span><br><div id='card'></div>";
   Disp();
   wine.style.display = "none";
   preview.style.display = "block";
