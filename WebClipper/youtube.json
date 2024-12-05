@@ -11,7 +11,7 @@
 		},
 		{
 			"name": "author",
-			"value": "{{schema:author|wikilink}}",
+			"value": "{{schema:author}}",
 			"type": "text"
 		},
 		{
