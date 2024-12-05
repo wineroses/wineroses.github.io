@@ -46,8 +46,8 @@
 		}
 	],
 	"triggers": [
-		"https://www.youtube.com/watch?v="
+		"https://m.youtube.com/watch?v="
 	],
-	"noteNameFormat": "{{schema:author}} – {{schema:name}}",
+	"noteNameFormat": "{{schema:name}}",
 	"path": "Clippings"
 }
