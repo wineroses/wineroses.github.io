@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Amazon",
+	"behavior": "create",
+	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{url}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:#imgTagWrapperId>img?src}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:#productTitle}} </b></a><br/><br/>{{selector:#bylineInfo .author a|join}}</div clear=all>\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:#productTitle}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:#bylineInfo .author a}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:#productSubtitle}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:#bookDescription_feature_div}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "amazon",
+			"type": "multitext"
+		},
+		{
+			"name": "image",
+			"value": "{{selector:#imgTagWrapperId>img?src}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.amazon.co.jp/"
+	],
+	"noteNameFormat": "{{selector:#productTitle}}",
+	"path": "Clippings"
+}
