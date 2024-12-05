@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Kindle",
+	"behavior": "create",
+	"noteContentFormat": "[![]({{selector:.kp-notebook-printable img?src}})]({{selector:.kp-notebook-printable?href}})\n\n{{selector:#highlight,#note|list}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:h3.kp-notebook-metadata}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{selector:.kp-notebook-printable?href}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:#annotation-scroller p.a-color-secondary}}",
+			"type": "multitext"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "最終更新日：{{selector:#kp-notebook-annotated-date}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{selector:.kp-notebook-printable img?src}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://read.amazon.co.jp/kp/notebook"
+	],
+	"noteNameFormat": "{{selector:h3.kp-notebook-metadata}}",
+	"path": "Clippings"
+}
