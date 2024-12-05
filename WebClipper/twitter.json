@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Twitter",
+	"behavior": "create",
+	"noteContentFormat": "![x.com]({{url}})\n\n{{title|split:\" on X: \"|last|slice:1,-5|split:\" https://t.co\"|first}}\n\n{{selector:img[alt=\"画像\"]?src|first|image:\"\"}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{url|split:\\\"/\\\"|slice:3,-2}}({{published|date:\\\"YYYY-MM-DD hh:mm\\\"}})",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{url|split:\\\"/\\\"|slice:3,-2}}",
+			"type": "text"
+		},
+		{
+			"name": "published",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings",
+			"type": "multitext"
+		},
+		{
+			"name": "image",
+			"value": "{{selector:img[alt=\\\"画像\\\"]?src|first}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://x.com"
+	],
+	"noteNameFormat": "{{url|split:\"/\"|slice:3,-2}}({{published|date:\"YYYY-MM-DD hh:mm\"}})",
+	"path": "Clippings"
+}
