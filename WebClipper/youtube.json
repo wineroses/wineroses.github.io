@@ -41,7 +41,7 @@
 		},
 		{
 			"name": "description",
-			"value": "{{description|split:()|first}}",
+			"value": "{{description|split:(\n\n)|first}}",
 			"type": "text"
 		}
 	],
