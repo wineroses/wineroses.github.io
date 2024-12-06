@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Kindle",
 	"behavior": "create",
-	"noteContentFormat": "[![]({{selector:.kp-notebook-printable img?src}})]({{selector:.kp-notebook-printable?href}})\n\n{{selector:#highlight,#note|list}}",
+	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{selector:.kp-notebook-printable?href}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:.kp-notebook-printable img?src}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:h3.kp-notebook-metadata}}</b></a><br/><br/>{{selector:#annotation-scroller p.a-color-secondary}}</div clear=all>\n\n{{selector:#highlight,#note|list|replace:\"- \\n\",\"\"}}\n",
 	"properties": [
 		{
 			"name": "title",
@@ -25,11 +25,6 @@
 			"type": "date"
 		},
 		{
-			"name": "description",
-			"value": "最終更新日：{{selector:#kp-notebook-annotated-date}}",
-			"type": "text"
-		},
-		{
 			"name": "image",
 			"value": "{{selector:.kp-notebook-printable img?src}}",
 			"type": "text"
@@ -38,6 +33,11 @@
 			"name": "tags",
 			"value": "clippings",
 			"type": "multitext"
+		},
+		{
+			"name": "description",
+			"value": "Kindle更新日：{{selector:#kp-notebook-annotated-date}}",
+			"type": "text"
 		}
 	],
 	"triggers": [
