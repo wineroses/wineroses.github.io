@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Twitter",
 	"behavior": "create",
-	"noteContentFormat": "![x.com]({{url}})\n\n{{title|split:\" on X: \"|last|slice:1,-5|split:\" https://t.co\"|first}}\n\n{{selector:img[alt=\"画像\"]?src|first|image:\"\"}}\n",
+	"noteContentFormat": "<iframe border=0 frameborder=0 width='400px' height='600px' src='https://twitframe.com/show?url={{url|replace:\"x.com\":\"twitter.com\"}}'></iframe>\n\n{{content}}\n",
 	"properties": [
 		{
 			"name": "title",
@@ -17,7 +17,7 @@
 		{
 			"name": "author",
 			"value": "{{url|split:\\\"/\\\"|slice:3,-2}}",
-			"type": "text"
+			"type": "multitext"
 		},
 		{
 			"name": "published",
