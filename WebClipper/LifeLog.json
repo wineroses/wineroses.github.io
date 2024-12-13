@@ -1,0 +1,8 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "LifeLog",
+	"behavior": "append-daily",
+	"noteContentFormat": "- {{date|date:mm:ss}} [{{title}}]({{url}})\n<iframe src='https://hatenablog.com/embed?url={{url}}' width='350px' frameborder='0' scrolling='no'></iframe>\n",
+	"properties": [],
+	"triggers": []
+}
