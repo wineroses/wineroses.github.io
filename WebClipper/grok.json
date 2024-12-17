@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Grok",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:.r-1ye8kvj.r-13qz1uu>.r-3pj75a|first|markdown}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:.r-bcqeeo.r-1adg3ll|first}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "grok",
+			"type": "multitext"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "published",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "clippings",
+			"type": "multitext"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:.r-16dba41.r-1adg3ll|first}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{selector:.r-13qz1uu.r-1s3egr7>div?style|first|split:\\\"\\\\\"\\\"|slice:1,2|first}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://x.com/i/grok"
+	],
+	"noteNameFormat": "Grok：{{selector:.r-bcqeeo.r-1adg3ll|first}}",
+	"path": "Clippings"
+}
