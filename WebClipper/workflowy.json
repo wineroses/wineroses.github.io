@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Workflowy",
+	"behavior": "create",
+	"noteContentFormat": "{{selector:.selected .innerContentContainer|list}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "workflowy",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:.selected .innerContentContainer|slice:1|first}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{favicon}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://workflowy.com/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings"
+}
