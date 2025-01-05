@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "nicovideo",
+	"behavior": "create",
+	"noteContentFormat": "<iframe width=350 height=220 frameborder=0 src='{{meta:property:og:video}}'></iframe>\n\n{{selectorHtml:.watch-VideoDescription-Body|markdown}}\n\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{meta:property:og:url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:property:video:release_date}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{image}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "nicovideo",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://sp.nicovideo.jp/watch/sm"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings"
+}
