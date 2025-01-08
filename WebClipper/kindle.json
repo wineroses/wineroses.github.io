@@ -41,7 +41,7 @@
 		}
 	],
 	"triggers": [
-		"https://read.amazon.co.jp/kp/notebook"
+		"https://read.amazon.co.jp/"
 	],
 	"noteNameFormat": "{{selector:h3.kp-notebook-metadata}}",
 	"path": "Clippings"
