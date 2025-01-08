@@ -1,6 +1,6 @@
 {
 	"schemaVersion": "0.1.0",
-	"name": "cosence",
+	"name": "cosense",
 	"behavior": "create",
 	"noteContentFormat": "{{selectorHtml:.lines .line|join:\"\\n\"|markdown}}",
 	"properties": [
@@ -41,7 +41,7 @@
 		},
 		{
 			"name": "tags",
-			"value": "cosence",
+			"value": "cosense",
 			"type": "multitext"
 		}
 	],
