@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "cosence",
+	"behavior": "create",
+	"noteContentFormat": "{{selectorHtml:.lines .line|join:\"\\n\"|markdown}}",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:.title|first}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:.created .date-label?title}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:.lines .text|slice:2|first}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{selector:.image?src|first}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "cosence",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://scrapbox.io/"
+	],
+	"noteNameFormat": "{{title}}",
+	"path": "Clippings"
+}
