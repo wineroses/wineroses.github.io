@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "cosense",
 	"behavior": "create",
-	"noteContentFormat": "{{selectorHtml:.lines .line|join:\"\\n\"|markdown}}",
+	"noteContentFormat": "{{selectorHtml:.lines .line|join:\"\\n\"|markdown|split:\"\\n\\n\"|join:\"\\n\"}}\n",
 	"properties": [
 		{
 			"name": "title",
