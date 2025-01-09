@@ -2,11 +2,11 @@
 	"schemaVersion": "0.1.0",
 	"name": "Amazon",
 	"behavior": "create",
-	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{url}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:#imgTagWrapperId>img?src}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:#productTitle}} </b></a><br/><br/>{{selector:#bylineInfo .author a|join}}</div clear=all>\n",
+	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{url}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:#imgTagWrapperId>img?src}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:#productTitle|first}} </b></a><br/><br/>{{selector:#bylineInfo .author a|join:\",\"}}</div clear=all>\n",
 	"properties": [
 		{
 			"name": "title",
-			"value": "{{selector:#productTitle}}",
+			"value": "{{selector:#productTitle|first}}",
 			"type": "text"
 		},
 		{
@@ -48,6 +48,6 @@
 	"triggers": [
 		"https://www.amazon.co.jp/"
 	],
-	"noteNameFormat": "{{selector:#productTitle}}",
+	"noteNameFormat": "Amazon：{{selector:#productTitle|first}}",
 	"path": "Clippings"
 }
