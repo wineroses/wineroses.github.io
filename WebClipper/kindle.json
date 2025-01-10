@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Kindle",
 	"behavior": "create",
-	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{selector:.kp-notebook-printable?href}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:.kp-notebook-printable img?src|split:\"SY160\"|join:\"SY320\"}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:h3.kp-notebook-metadata}}</b></a><br/><br/>{{selector:#annotation-scroller p.a-color-secondary}}</div clear=all>\n\n{{selector:#highlight,#note|list|replace:\"- \\n\",\"\"}}\n",
+	"noteContentFormat": "<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{selector:.kp-notebook-printable?href}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{selector:.kp-notebook-printable img?src|replace:\"SY160\":\"SY320\"}}' style='float:left; width:120px; margin:1px 12px;'><b> {{selector:h3.kp-notebook-metadata}}</b></a><br/><br/>{{selector:#annotation-scroller p.a-color-secondary}}</div clear=all>\n\n{{selector:#highlight,#note|list|replace:\"- \\n\",\"\"}}\n\n",
 	"properties": [
 		{
 			"name": "title",
@@ -18,6 +18,11 @@
 			"name": "author",
 			"value": "{{selector:#annotation-scroller p.a-color-secondary}}",
 			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:#kp-notebook-annotated-date|first}}",
+			"type": "date"
 		},
 		{
 			"name": "created",
@@ -36,7 +41,7 @@
 		},
 		{
 			"name": "description",
-			"value": "Kindle更新日：{{selector:#kp-notebook-annotated-date}}",
+			"value": "Kindle",
 			"type": "text"
 		}
 	],
