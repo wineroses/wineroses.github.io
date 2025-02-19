@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Perplexity",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:.pb-32 .text-textMain|slice:4|first}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.perplexity.ai/search/"
+	],
+	"noteNameFormat": "{{selector:title|safe_name:mac}}",
+	"path": "Clippings"
+}
