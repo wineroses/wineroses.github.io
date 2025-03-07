@@ -5,7 +5,7 @@ window.webkit.messageHandlers.initT.postMessage("main")
 function main(){
   url = location.href
   if(/\?/.test(url)) {
-    s = T.pboard()
+    s = T.dara['text']
     p = 0
   } else {
     s = localStorage.text || ""
