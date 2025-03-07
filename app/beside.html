@@ -5,7 +5,7 @@ window.webkit.messageHandlers.initT.postMessage("main")
 function main(){
   url = location.href
   if(/\?/.test(url)) {
-    s = decodeURIComponent(url.split("?")[1])
+    s = await navigator.clipboard.readText()
     p = 0
   } else {
     s = localStorage.text || ""
