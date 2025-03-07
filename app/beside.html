@@ -1,13 +1,19 @@
 <html><head>
 <script>
-window.webkit.messageHandlers.initT.postMessage("main");
+window.webkit.messageHandlers.initT.postMessage("main")
 
 function main(){
-  s = localStorage.text || "";
-  localStorage.text = T.text;
-  p = localStorage.loc-0 || 0;
-  localStorage.loc = T.range.loc;
- T("replaceRange",{text:s,replacingRange:{len:T.text.length},selectingRange:{loc:p}});
+  url = location.href
+  if(/\?/.test(url)) {
+    s = decodeURIComponent(url.split("?")[1])
+    p = 0
+  } else {
+    s = localStorage.text || ""
+    p = localStorage.loc-0 || 0
+  }
+  localStorage.text = T.text
+  localStorage.loc = T.range.loc
+ T("replaceRange",{text:s,replacingRange:{len:T.text.length},selectingRange:{loc:p}})
 }
 
 </script>
