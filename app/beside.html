@@ -3,9 +3,8 @@
 window.webkit.messageHandlers.initT.postMessage("main")
 
 function main(){
-  url = location.href
-  if(/\?/.test(url)) {
-    s = T.data.text
+  s = T.data.text
+  if(s) {
     p = 0
   } else {
     s = localStorage.text || ""
