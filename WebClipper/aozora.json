@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "aozora",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{selector:.author|first}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "青空文庫",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "https://www.aozora.gr.jp/images/top_logo.png",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.aozora.gr.jp/"
+	],
+	"noteNameFormat": "{{title|safe_name:mac}}",
+	"path": "Clippings"
+}
