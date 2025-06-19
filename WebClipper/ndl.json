@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "ndl",
+	"behavior": "create",
+	"noteContentFormat": "\n<div style='font-family:serif; color:black; font-size:small; background:whitesmoke; padding:10px; width:auto; border-radius:3px; overflow:hidden; border:0;'><a href='{{url}}' target='_blank' style='font-family:sans-serif; color:navy;'><img src='{{image}}' style='float:left; width:120px; margin:1px 12px;'><b> {{title|split:\" | \"|first}} </b></a><br/><br/>{{author|split:\",\"|first}}</div clear=all>\n\n{{selectorHtml:.pages-books-abstract|markdown}}\n\n{{selectorHtml:#pages-books-section-bib|markdown}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{published}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{selector:.pages-books-abstract-notes-info|first}}",
+			"type": "text"
+		},
+		{
+			"name": "image",
+			"value": "{{image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://ndlsearch.ndl.go.jp/books"
+	],
+	"noteNameFormat": "{{title|safe_name:mac}}",
+	"path": "Clippings"
+}
