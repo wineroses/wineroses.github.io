@@ -1,0 +1,28 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "txt",
+	"behavior": "create",
+	"noteContentFormat": "{{selector:body}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{url|split:\\\"/\\\"|last}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		}
+	],
+	"triggers": [
+		"*.txt"
+	],
+	"noteNameFormat": "{{url|split:\"/\"|last}}",
+	"path": "Clippings"
+}
