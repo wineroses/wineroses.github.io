@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "YouTube",
 	"behavior": "create",
-	"noteContentFormat": "![{{schema:name}}]({{url}})\n\n{{description}}\n",
+	"noteContentFormat": "<iframe width='350px' height='198px' src='http://www.youtube.com/embed/{{url|split:\"v=\"|last|split:\"&\"|first}}' frameborder=0></iframe>\n\n{{description}}\n\n{{selectorHtml:.ytd-transcript-segment-renderer .segment-timestamp, .ytd-transcript-segment-renderer yt-formatted-string|join:\"\"|markdown|split:\"\\n\\n\"|join:\"\\n\"}}\n",
 	"properties": [
 		{
 			"name": "title",
@@ -12,7 +12,7 @@
 		{
 			"name": "author",
 			"value": "{{schema:author}}",
-			"type": "text"
+			"type": "multitext"
 		},
 		{
 			"name": "published",
@@ -41,13 +41,14 @@
 		},
 		{
 			"name": "description",
-			"value": "{{description|split:(\n\n)|first}}",
+			"value": "{{description}}",
 			"type": "text"
 		}
 	],
 	"triggers": [
+		"https://www.youtube.com/watch?v=",
 		"https://m.youtube.com/watch?v="
 	],
-	"noteNameFormat": "{{schema:name}}",
+	"noteNameFormat": "{{schema:name|safe_name:mac}}",
 	"path": "Clippings"
 }
