@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "kifudepot",
+	"behavior": "create",
+	"noteContentFormat": "\n```sgf\n{{selector:#sgf}}\n```\n\n{{selectorHtml:.wgo-comments-content|markdown}}\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings",
+			"type": "multitext"
+		},
+		{
+			"name": "image",
+			"value": "https://kifudepot.net/img/logo.png",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://kifudepot.net/kifucontents.php"
+	],
+	"noteNameFormat": "{{title|safe_name:mac}}",
+	"path": "Clippings"
+}
