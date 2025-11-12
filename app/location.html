@@ -6,14 +6,13 @@
 function success(position) {
   var latitude = position.coords.latitude
   var longitude = position.coords.longitude
-  s = `---/ncoordinates: /n - "${latitude}"/n  - "${longitude}"/nicon: "landmark"/ncolor: "red"/ntags:/n  - places/n---/n`
-  alert(s)
-  url = `obsidian://new?content=${encodeURIComponent(s)}`
+  s = `---\ncoordinates: \n - "${latitude}"\n  - "${longitude}"\nicon: "landmark"\ncolor: "red"\ntags:\n  - places\n---\n`
+  url = `obsidian://new?name=location&content=${encodeURIComponent(s)}`
   open(url)
 }
 
 function error(error) {
-  var errorMessage = "エラーコード: " + error.code + "/nエラーメッセージ: " + error.message
+  var errorMessage = `エラーコード: ${error.code}\nエラーメッセージ: ${error.message}`
   alert(errorMessage)
 }
 
