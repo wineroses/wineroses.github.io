@@ -7,10 +7,7 @@ function success(position) {
   var latitude = position.coords.latitude
   var longitude = position.coords.longitude
   var content = `---\ncoordinates: \n - "${latitude}"\n  - "${longitude}"\nicon: "landmark"\ncolor: "red"\ntags:\n  - places\n---\n`
-  navigator.clipboard.writeText(content)
-  alert("copied")
-  url = `obsidian://new?name=location&content=${encodeURIComponent(content)}`
-  window.open(url)
+  location = `obsidian://new?name=location&content=${encodeURIComponent(content)}`
 }
 
 function error(error) {
