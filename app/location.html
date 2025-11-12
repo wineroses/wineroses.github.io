@@ -9,7 +9,7 @@ function success(position) {
   s = `---\ncoordinates: \n - "${latitude}"\n  - "${longitude}"\nicon: "landmark"\ncolor: "red"\ntags:\n  - places\n---\n`
   alert(s)
   url = `obsidian://`
-  open(url)
+  window.open(url)
 }
 
 function error(error) {
