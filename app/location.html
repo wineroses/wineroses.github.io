@@ -1,13 +1,18 @@
+<head>
+<title>Obsidian Location</title>
+</head>
 <body>
 <script>
 function success(position) {
   var latitude = position.coords.latitude
   var longitude = position.coords.longitude
-  alert("緯度: " + latitude + ", 経度: " + longitude)
+  s = `---/ncoordinates: /n - "${latitude}"/n  - "${longitude}"/nicon: "landmark"/ncolor: "red"/ntags:/n  - places/n---/n`
+  url = `obsidian://new?content=${encodeURIComponent(s)}`
+  open(url)
 }
 
 function error(error) {
-  var errorMessage = "エラーコード: " + error.code + ", エラーメッセージ: " + error.message
+  var errorMessage = "エラーコード: " + error.code + "/nエラーメッセージ: " + error.message
   alert(errorMessage)
 }
 
