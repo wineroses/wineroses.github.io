@@ -1,0 +1,17 @@
+<body>
+<script>
+function success(position) {
+  var latitude = position.coords.latitude
+  var longitude = position.coords.longitude
+  alert("緯度: " + latitude + ", 経度: " + longitude)
+}
+
+function error(error) {
+  var errorMessage = "エラーコード: " + error.code + ", エラーメッセージ: " + error.message
+  alert(errorMessage)
+}
+
+navigator.geolocation.getCurrentPosition(success, error)
+
+</script>
+</body>
