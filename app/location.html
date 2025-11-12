@@ -7,6 +7,7 @@ function success(position) {
   var latitude = position.coords.latitude
   var longitude = position.coords.longitude
   s = `---/ncoordinates: /n - "${latitude}"/n  - "${longitude}"/nicon: "landmark"/ncolor: "red"/ntags:/n  - places/n---/n`
+  alert(s)
   url = `obsidian://new?content=${encodeURIComponent(s)}`
   open(url)
 }
