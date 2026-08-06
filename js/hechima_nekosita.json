@@ -1,0 +1,66 @@
+{
+  "$schema": "../../../docs/keymap-v2.schema.json",
+  "formatVersion": "2.0",
+  "name": "猫舌配列",
+  "description": "猫舌式ローマ字入力",
+  "author": "wineroses",
+  "targetScript": "hiragana",
+  "inputMappings": {
+      "ーー":"#"
+  },
+  "inputBase": "romaji",
+  "keyRemap": {
+      "a": "n",
+      "s": "k",
+      "d": "s",
+      "f": "t",
+      "j": "a",
+      "k": "o",
+      "l": "u",
+      ";": "ー",
+      "z": "w",
+      "x": "r",
+      "c": "m",
+      "v": "h",
+      "m": "e",
+      ",": "i",
+      ".": "x",
+      "q": "j",
+      "w": "g",
+      "e": "z",
+      "r": "d",
+      "g": "b",
+      "t": "p",
+      "h": "f",
+      "y": "v",
+      "u": "ya",
+      "i": "yo",
+      "o": "yu",
+      "p": "y",
+      "b": "。",
+      "n": "、" 
+},
+"prefixShiftKeys": [],
+"behavior": {
+  "type": "sequential",
+  "characterMap": {
+      "0": "0",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9"
+  }
+},
+  "modeKeys": {
+    "ctrl+space": "toggleInputMode",
+    "ctrl+shift+j": "switchToJapanese",
+    "ctrl+shift+semicolon": "switchToEnglish",
+    "lang2": "switchToEnglish",
+    "lang1": "switchToJapanese"
+  }
+}
