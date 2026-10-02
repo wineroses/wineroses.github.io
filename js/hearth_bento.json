@@ -1,0 +1,155 @@
+{
+  "hearth": {
+    "format": 3,
+    "kind": "layout",
+    "plugin": "3.3.0",
+    "createdAt": "2026-10-02T07:54:08.582Z"
+  },
+  "capture": {
+    "platform": "mobile",
+    "performanceTier": "balanced",
+    "locale": "ja"
+  },
+  "requires": {
+    "cardKinds": [
+      "favorites",
+      "leaf",
+      "recent",
+      "searchbar"
+    ],
+    "viewTypes": [
+      "thino_view"
+    ]
+  },
+  "payload": {
+    "hearthLayout": 2,
+    "dashboards": [
+      {
+        "id": "dash-mukc8uwc-3027",
+        "name": "Bento",
+        "cards": [
+          {
+            "id": "card-mukc94yt-4-9561",
+            "kind": "recent",
+            "x": 0,
+            "y": 5,
+            "w": 4,
+            "h": 4,
+            "fx": 0.3392857142857143,
+            "fw": 0.6607142857142857,
+            "fy": 319.5036681460013,
+            "fh": 631.2145638981976,
+            "title": "Recent",
+            "count": 20,
+            "recentAuto": true,
+            "fileView": "tiles",
+            "links": [],
+            "recentTypes": [
+              "markdown"
+            ],
+            "folder": {
+              "path": "Inbox",
+              "show": "files",
+              "view": "tiles"
+            }
+          },
+          {
+            "id": "card-munmzens-5246",
+            "kind": "searchbar",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 1,
+            "fx": 0.3392857142857143,
+            "fw": 0.6607142857142857,
+            "fy": 0,
+            "fh": 111.04700661171997,
+            "title": "",
+            "design": "classic",
+            "clock": {},
+            "searchBar": {
+              "button": "newNote"
+            },
+            "savedSearch": {}
+          },
+          {
+            "id": "card-muq83r2y-1345",
+            "kind": "favorites",
+            "x": 0,
+            "y": 6,
+            "w": 4,
+            "h": 3,
+            "fx": 0.3392857142857143,
+            "fw": 0.6607142857142857,
+            "fy": 111.04700661171997,
+            "fh": 208.45666153428132,
+            "title": "Favorites",
+            "fileView": "tiles"
+          },
+          {
+            "id": "card-muq8vdqf-1599",
+            "kind": "leaf",
+            "x": 0,
+            "y": 5,
+            "w": 5,
+            "h": 4,
+            "fx": 0,
+            "fw": 0.32341269841269843,
+            "fy": 0,
+            "fh": 950.718232044199,
+            "title": "Plugin view",
+            "leafView": {
+              "viewType": "thino_view"
+            }
+          }
+        ],
+        "showSearch": false,
+        "compact": false,
+        "searchPlaceholder": "...",
+        "newNoteButtonMode": "newNote",
+        "hiddenFilters": [
+          "folders",
+          "markdown",
+          "excalidraw",
+          "canvas",
+          "bases",
+          "images",
+          "videos",
+          "audio",
+          "pdf",
+          "documents",
+          "spreadsheets",
+          "presentations",
+          "3d",
+          "other"
+        ],
+        "header": {
+          "showTitle": false,
+          "title": "Bento",
+          "themeColorTarget": "none"
+        },
+        "fullWidth": false,
+        "cardOpacity": 0.5,
+        "cardBlur": 7,
+        "cardRadius": 14,
+        "cardBorderWidth": 1,
+        "background": {
+          "kind": "harbour",
+          "opacity": 0.9,
+          "blur": 0
+        },
+        "backgroundLayout": "full"
+      }
+    ],
+    "activeDashboardId": "dash-mukc8uwc-3027",
+    "pinnedCards": [],
+    "gridColumns": 12,
+    "rowHeight": 92,
+    "fitToPage": true,
+    "maxWidth": 1600,
+    "fullWidth": true,
+    "favorites": [
+      "canvas/caos.canvas"
+    ]
+  }
+}
