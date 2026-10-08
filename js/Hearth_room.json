@@ -1,0 +1,155 @@
+{
+  "hearth": {
+    "format": 3,
+    "kind": "layout",
+    "plugin": "3.3.0",
+    "createdAt": "2026-10-08T04:08:20.954Z"
+  },
+  "capture": {
+    "platform": "mobile",
+    "performanceTier": "balanced",
+    "locale": "ja"
+  },
+  "requires": {
+    "cardKinds": [
+      "calendar",
+      "recent",
+      "searchbar",
+      "tasks"
+    ]
+  },
+  "payload": {
+    "hearthLayout": 2,
+    "dashboards": [
+      {
+        "id": "dash-mukc8uwc-3027",
+        "name": "Room",
+        "cards": [
+          {
+            "id": "card-munmzens-5246",
+            "kind": "searchbar",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 1,
+            "fx": 0,
+            "fw": 0.626984126984127,
+            "fy": 0,
+            "fh": 145.64031873750181,
+            "title": "",
+            "design": "classic",
+            "clock": {},
+            "searchBar": {
+              "button": "newNote",
+              "placeholder": "..."
+            },
+            "savedSearch": {}
+          },
+          {
+            "id": "card-muw6m96k-3998",
+            "x": 4,
+            "y": 2,
+            "kind": "recent",
+            "title": "履歴",
+            "count": 50,
+            "w": 4,
+            "h": 3,
+            "fx": 0,
+            "fy": 145.64031873750181,
+            "fw": 0.626984126984127,
+            "fh": 814.1532572047233,
+            "fileView": "list"
+          },
+          {
+            "id": "card-muyzxcok-1282",
+            "x": 8,
+            "y": 0,
+            "kind": "calendar",
+            "title": "デイリーノート",
+            "w": 4,
+            "h": 4,
+            "fx": 0.6428571428571429,
+            "fy": 0,
+            "fw": 0.35714285714285715,
+            "fh": 561.0733590707038,
+            "calendar": {
+              "sources": [],
+              "checkboxTasks": {
+                "enabled": true,
+                "completed": false
+              }
+            }
+          },
+          {
+            "id": "card-muyzxglm-9795",
+            "x": 8,
+            "y": 4,
+            "kind": "tasks",
+            "title": "タスク",
+            "tasks": {},
+            "w": 4,
+            "h": 4,
+            "fx": 0.6428571428571429,
+            "fy": 561.0733590707038,
+            "fw": 0.35714285714285715,
+            "fh": 398.72021687152136
+          }
+        ],
+        "showSearch": false,
+        "compact": false,
+        "showNewNoteButton": false,
+        "newNoteButtonMode": "newNote",
+        "hiddenFilters": [
+          "folders",
+          "markdown",
+          "excalidraw",
+          "canvas",
+          "bases",
+          "images",
+          "videos",
+          "audio",
+          "pdf",
+          "documents",
+          "spreadsheets",
+          "presentations",
+          "3d",
+          "other"
+        ],
+        "hiddenInstantAnswers": [
+          "weather"
+        ],
+        "stackOnNarrow": false,
+        "narrowWidth": 700,
+        "header": {
+          "showTitle": false,
+          "title": "Bento",
+          "themeColorTarget": "none"
+        },
+        "fullWidth": true,
+        "cardOpacity": 0.5,
+        "cardBlur": 7,
+        "cardRadius": 14,
+        "cardBorderWidth": 1,
+        "background": {
+          "kind": "default",
+          "value": "https://gyazo.com/a10bec93301071406f1ab371df76f2e4/raw",
+          "opacity": 1,
+          "blur": 0
+        },
+        "backgroundLayout": "full",
+        "pluginView": {}
+      }
+    ],
+    "activeDashboardId": "dash-mukc8uwc-3027",
+    "pinnedCards": [],
+    "gridColumns": 12,
+    "rowHeight": 92,
+    "fitToPage": true,
+    "maxWidth": 1600,
+    "fullWidth": true,
+    "favorites": [
+      "@RootLiner.md",
+      "canvas/caos.canvas"
+    ]
+  }
+}
