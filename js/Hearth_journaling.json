@@ -1,0 +1,179 @@
+{
+  "hearth": {
+    "format": 3,
+    "kind": "layout",
+    "plugin": "3.9.0",
+    "createdAt": "2026-11-26T01:07:12.751Z"
+  },
+  "capture": {
+    "platform": "mobile",
+    "performanceTier": "balanced",
+    "locale": "ja"
+  },
+  "requires": {
+    "plugins": [
+      "daily-notes"
+    ],
+    "cardKinds": [
+      "calendar",
+      "clock",
+      "daily",
+      "searchbar",
+      "tasks"
+    ]
+  },
+  "payload": {
+    "hearthLayout": 2,
+    "dashboards": [
+      {
+        "id": "dash-mukc8uwc-3027",
+        "name": "Room",
+        "cards": [
+          {
+            "id": "card-munmzens-5246",
+            "kind": "searchbar",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 1,
+            "fx": 0.36507936507936506,
+            "fw": 0.6349206349206349,
+            "fy": 0,
+            "fh": 110.78588658416878,
+            "title": "",
+            "design": "classic",
+            "clock": {},
+            "searchBar": {
+              "button": "newNote",
+              "placeholder": "..."
+            },
+            "savedSearch": {}
+          },
+          {
+            "id": "card-mwt0lcak-9893",
+            "x": 0,
+            "y": 5,
+            "kind": "daily",
+            "w": 6,
+            "h": 4,
+            "fx": 0.36507936507936506,
+            "fy": 110.78588658416878,
+            "fw": 0.6349206349206349,
+            "fh": 821.3436419171134,
+            "editable": true,
+            "showOpenButton": false,
+            "title": "",
+            "livePreview": true
+          },
+          {
+            "id": "card-mwt0ncbf-5971",
+            "x": 0,
+            "y": 0,
+            "kind": "calendar",
+            "title": "",
+            "w": 4,
+            "h": 4,
+            "fx": 0.000992063492063492,
+            "fy": 141.34751046945672,
+            "fw": 0.3482142857142857,
+            "fh": 406.8516179728957,
+            "calendar": {
+              "sources": [],
+              "heatmapMetric": "created",
+              "checkboxTasks": {
+                "enabled": true
+              }
+            }
+          },
+          {
+            "id": "card-mwt0ru0o-7680",
+            "x": 0,
+            "y": 7,
+            "kind": "clock",
+            "title": "",
+            "w": 4,
+            "h": 2,
+            "fx": 0.000992063492063492,
+            "fy": 0,
+            "fw": 0.3482142857142857,
+            "fh": 141.34751046945672,
+            "clock": {
+              "mode": "flip",
+              "showGreeting": false,
+              "dateMode": "none",
+              "hourFormat": "24"
+            }
+          },
+          {
+            "id": "card-mwt16g3n-8658",
+            "x": 0,
+            "y": 5,
+            "kind": "tasks",
+            "title": "🔔",
+            "tasks": {},
+            "w": 4,
+            "h": 4,
+            "fx": 0.000992063492063492,
+            "fy": 548.1991284423524,
+            "fw": 0.3482142857142857,
+            "fh": 383.93040005892976
+          }
+        ],
+        "showSearch": false,
+        "showNewNoteButton": false,
+        "newNoteButtonMode": "newNote",
+        "hiddenFilters": [
+          "folders",
+          "markdown",
+          "excalidraw",
+          "canvas",
+          "bases",
+          "images",
+          "videos",
+          "audio",
+          "pdf",
+          "documents",
+          "spreadsheets",
+          "presentations",
+          "3d",
+          "other"
+        ],
+        "hiddenInstantAnswers": [
+          "weather"
+        ],
+        "stackOnNarrow": false,
+        "narrowWidth": 700,
+        "header": {
+          "showTitle": false,
+          "title": "Bento",
+          "themeColorTarget": "none"
+        },
+        "fullWidth": true,
+        "cardOpacity": 0.5,
+        "cardBlur": 7,
+        "cardRadius": 14,
+        "cardBorderWidth": 1,
+        "background": {
+          "kind": "url",
+          "value": "https://gyazo.com/96282e8a37df46940a1d7f7d3658d3b2/raw",
+          "opacity": 1,
+          "blur": 0
+        },
+        "backgroundLayout": "full",
+        "pluginView": {},
+        "density": "roomy"
+      }
+    ],
+    "activeDashboardId": "dash-mukc8uwc-3027",
+    "pinnedCards": [],
+    "gridColumns": 12,
+    "rowHeight": 92,
+    "fitToPage": true,
+    "maxWidth": 1600,
+    "fullWidth": true,
+    "favorites": [
+      "@RootLiner.md",
+      "canvas/caos.canvas"
+    ]
+  }
+}
