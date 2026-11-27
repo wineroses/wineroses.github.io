@@ -1,0 +1,190 @@
+{
+  "hearth": {
+    "format": 3,
+    "kind": "layout",
+    "plugin": "3.9.0",
+    "createdAt": "2026-11-27T02:12:18.450Z"
+  },
+  "capture": {
+    "platform": "mobile",
+    "performanceTier": "balanced",
+    "locale": "ja"
+  },
+  "requires": {
+    "cardKinds": [
+      "rss",
+      "searchbar",
+      "slideshow"
+    ]
+  },
+  "payload": {
+    "hearthLayout": 2,
+    "dashboards": [
+      {
+        "id": "dash-mukc8uwc-3027",
+        "name": "RSS",
+        "cards": [
+          {
+            "id": "card-munmzens-5246",
+            "kind": "searchbar",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 1,
+            "fx": 0,
+            "fw": 0.6041666666666666,
+            "fy": 0,
+            "fh": 94.4968942244544,
+            "title": "",
+            "design": "classic",
+            "clock": {},
+            "searchBar": {
+              "button": "newNote",
+              "placeholder": "..."
+            },
+            "savedSearch": {}
+          },
+          {
+            "id": "card-mwy97dcv-9295",
+            "x": 0,
+            "y": 4,
+            "kind": "rss",
+            "title": "",
+            "rss": {
+              "sources": [
+                {
+                  "id": "rss-mwyadsuu-4949",
+                  "name": "現代メディア",
+                  "url": "https://gendai.media/list/feed/rss"
+                }
+              ],
+              "note": {
+                "folder": "Clippings",
+                "properties": [
+                  {
+                    "name": "source",
+                    "value": "{{link}}",
+                    "type": "text"
+                  },
+                  {
+                    "name": "author",
+                    "value": "{{author}}",
+                    "type": "text"
+                  },
+                  {
+                    "name": "feed",
+                    "value": "{{feed}}",
+                    "type": "text"
+                  },
+                  {
+                    "name": "published",
+                    "value": "{{published}}",
+                    "type": "date"
+                  },
+                  {
+                    "name": "created",
+                    "value": "{{today}}",
+                    "type": "date"
+                  },
+                  {
+                    "name": "tags",
+                    "value": "rss",
+                    "type": "list"
+                  },
+                  {
+                    "name": "image",
+                    "value": "{{image}}"
+                  }
+                ]
+              },
+              "layout": "cards",
+              "showExcerpt": false,
+              "openIn": "dialog",
+              "unreadOnly": true,
+              "readerImages": "always"
+            },
+            "w": 4,
+            "h": 5,
+            "fx": 0,
+            "fy": 94.4968942244544,
+            "fw": 0.6041666666666666,
+            "fh": 728.9760411600768
+          },
+          {
+            "id": "card-mwyav66n-5814",
+            "x": 0,
+            "y": 4,
+            "kind": "slideshow",
+            "title": "",
+            "slideshow": {
+              "slides": [],
+              "source": "notes",
+              "order": "random",
+              "transition": "slide",
+              "folder": "Clippings"
+            },
+            "w": 5,
+            "h": 4,
+            "fx": 0.6041666666666666,
+            "fy": 0,
+            "fw": 0.3958333333333333,
+            "fh": 823.4729353845312,
+            "showOpenButton": true
+          }
+        ],
+        "showSearch": false,
+        "showNewNoteButton": false,
+        "newNoteButtonMode": "newNote",
+        "hiddenFilters": [
+          "folders",
+          "markdown",
+          "excalidraw",
+          "canvas",
+          "bases",
+          "images",
+          "videos",
+          "audio",
+          "pdf",
+          "documents",
+          "spreadsheets",
+          "presentations",
+          "3d",
+          "other"
+        ],
+        "hiddenInstantAnswers": [
+          "weather"
+        ],
+        "stackOnNarrow": false,
+        "narrowWidth": 700,
+        "header": {
+          "showTitle": false,
+          "title": "Bento",
+          "themeColorTarget": "none"
+        },
+        "fullWidth": true,
+        "cardOpacity": 0.5,
+        "cardBlur": 7,
+        "cardRadius": 14,
+        "cardBorderWidth": 1,
+        "background": {
+          "kind": "url",
+          "value": "https://gyazo.com/85eca213e5fb7b397f33cf40d55ae587/raw",
+          "opacity": 1,
+          "blur": 0
+        },
+        "backgroundLayout": "full",
+        "pluginView": {},
+        "density": "roomy"
+      }
+    ],
+    "activeDashboardId": "dash-mukc8uwc-3027",
+    "pinnedCards": [],
+    "gridColumns": 12,
+    "rowHeight": 92,
+    "fitToPage": true,
+    "maxWidth": 1600,
+    "fullWidth": true,
+    "favorites": [
+    ]
+  }
+}
